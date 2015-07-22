@@ -66,12 +66,12 @@ This document describes the teamwork assignment for Telerik Academy students in 
 	
 	
 	Public Project Defence
-	Each team will have to deliver a public defense of its work to the other students and trainers. You will have only 10 minutes for the following:
+	Each team will have to deliver a public defence of its work to the other students and trainers. You will have only 10 minutes for the following:
 
 	Demonstrate the application (very shortly)
 	Show the source code
 	Show the commits logs to confirm that team member have contributed.
 	Optionally you might prepare a presentation (3-4 slides) Please be strict in timing! Be well prepared for presenting maximum of your work for minimum time. Bring your own laptop. Test it preliminary with the multimedia projector. Open the project assets beforehand to save time. You have 10 minutes, no more
-	Give Feedback about Your Teammates
+	Give Feedback about Your Team mates
 
-You will be invited to provide feedback about all your teammates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc. The feedback is important part of the project evaluation so take it seriously and be honest
+	You will be invited to provide feedback about all your team mates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc. The feedback is important part of the project evaluation so take it seriously and be honest
