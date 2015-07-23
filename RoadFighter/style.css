@@ -1,0 +1,24 @@
+﻿#game_screen {
+    width: 950px;
+    height: 450px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+canvas {
+    left: 33%;
+    margin-left: 10px;
+}
+
+.window, .screen {
+    float: left;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    list-style-type: none;
+}
