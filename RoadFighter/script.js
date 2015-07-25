@@ -9,7 +9,7 @@ var roadFighter = (function () {
         screenContainer = document.getElementById("#screen");
 
     var stage = new Kinetic.Stage({
-        container: screenContainer,
+        container: 'screen',
         height: 500,
         width: 700
     });
@@ -19,8 +19,9 @@ var roadFighter = (function () {
     var rect = Kinetic.Rect({
         x: 0,
         y:0,
-        width: stage.width,
-        height: stage.height
+        width: 500,
+        height: 500,
+        fill: "000"
     });
 
     Object.defineProperty(roadFighter, 'init', {
