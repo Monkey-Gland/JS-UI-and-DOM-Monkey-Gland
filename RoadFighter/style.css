@@ -10,6 +10,11 @@ canvas {
     margin-left: 10px;
 }
 
+header {
+    float: right;
+    margin-right: 25%;
+}
+
 .window, .screen {
     float: left;
 }

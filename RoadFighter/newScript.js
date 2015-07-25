@@ -3,9 +3,9 @@ var CONST = {
 	height: 600,
 	midLineHeight: 50,
 	midLineWidth: 10
-}
+};
 
-var speed = 5,
+var speed = 10,
 	midLaneBoxes = [];
 
 var stage = new Kinetic.Stage({
@@ -14,7 +14,8 @@ var stage = new Kinetic.Stage({
     height:CONST.height
 });
 
-var layer = new Kinetic.Layer();
+var layerMovingObjects = new Kinetic.Layer(),
+    enemyCarsLayer = enemyCars.getLayer();
 
 var rect = new Kinetic.Rect({
     x:0,
@@ -32,8 +33,8 @@ var rectRoad = new Kinetic.Rect({
 	fill: 'grey'
 });
 
-layer.add(rect);
-layer.add(rectRoad);
+layerMovingObjects.add(rect);
+layerMovingObjects.add(rectRoad);
 
 
 for (var i = 0, cnt = CONST.height/(CONST.midLineHeight*2); i < cnt + 1; i+=1) {
@@ -48,7 +49,7 @@ for (var i = 0, cnt = CONST.height/(CONST.midLineHeight*2); i < cnt + 1; i+=1) {
 					);	
 }
 for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
-	layer.add(midLaneBoxes[i]);
+	layerMovingObjects.add(midLaneBoxes[i]);
 };	
 
 var anim = new Kinetic.Animation(function(frame){
@@ -67,8 +68,11 @@ var anim = new Kinetic.Animation(function(frame){
 		console.log(startY);
 		rectMidLine.setY(newY);
 	}	
-},layer);
+},layerMovingObjects);
 
+var enemyCarsAnimation = new Kinetic.Animation(enemyCars.animationFunction, enemyCarsLayer);
 
-stage.add(layer);
+stage.add(layerMovingObjects);
+stage.add (enemyCarsLayer);
 anim.start();
+enemyCarsAnimation.start();

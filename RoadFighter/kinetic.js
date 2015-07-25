@@ -322,7 +322,7 @@ var Kinetic = {};
          * @augments Kinetic.Container
          * @param {Object} config
          * @param {Boolean} [config.clearBeforeDraw] set this property to false if you don't want
-         * to clear the canvas before each layer draw.  The default value is true.
+         * to clear the canvas before each layerMovingObjects draw.  The default value is true.
          * @param {Number} [config.x]
      * @param {Number} [config.y]
      * @param {Number} [config.width]
@@ -350,7 +350,7 @@ var Kinetic = {};
      * @param {Number} [config.clipHeight] set clip height
 
          * @example
-         * var layer = new Kinetic.Layer();
+         * var layerMovingObjects = new Kinetic.Layer();
          */
         BaseLayer: function(config) {
             this.___init(config);
@@ -364,7 +364,7 @@ var Kinetic = {};
          * @augments Kinetic.BaseLayer
          * @param {Object} config
          * @param {Boolean} [config.clearBeforeDraw] set this property to false if you don't want
-         * to clear the canvas before each layer draw.  The default value is true.
+         * to clear the canvas before each layerMovingObjects draw.  The default value is true.
          * @param {Number} [config.x]
      * @param {Number} [config.y]
      * @param {Number} [config.width]
@@ -392,7 +392,7 @@ var Kinetic = {};
      * @param {Number} [config.clipHeight] set clip height
 
          * @example
-         * var layer = new Kinetic.Layer();
+         * var layerMovingObjects = new Kinetic.Layer();
          */
         Layer: function(config) {
             this.____init(config);
@@ -408,7 +408,7 @@ var Kinetic = {};
          * @augments Kinetic.BaseLayer
          * @param {Object} config
          * @param {Boolean} [config.clearBeforeDraw] set this property to false if you don't want
-         * to clear the canvas before each layer draw.  The default value is true.
+         * to clear the canvas before each layerMovingObjects draw.  The default value is true.
          * @param {Boolean} [config.visible]
          * @param {String} [config.id] unique id
          * @param {String} [config.name] non-unique name
@@ -420,7 +420,7 @@ var Kinetic = {};
      * @param {Number} [config.clipHeight] set clip height
 
          * @example
-         * var layer = new Kinetic.FastLayer();
+         * var layerMovingObjects = new Kinetic.FastLayer();
          */
         FastLayer: function(config) {
             this.____init(config);
@@ -651,8 +651,8 @@ var Kinetic = {};
      * @memberof Kinetic.Collection.prototype
      * @param {Function} func
      * @example
-     * // get all nodes with name foo inside layer, and set x to 10 for each
-     * layer.get('.foo').each(function(shape, n) {
+     * // get all nodes with name foo inside layerMovingObjects, and set x to 10 for each
+     * layerMovingObjects.get('.foo').each(function(shape, n) {
      *   shape.setX(10);
      * });
      */
@@ -2450,7 +2450,7 @@ var Kinetic = {};
             sceneContext.translate(x * -1, y * -1);
             hitContext.translate(x * -1, y * -1);
 
-            // don't need to translate canvas if shape is not added to layer
+            // don't need to translate canvas if shape is not added to layerMovingObjects
             if (this.nodeType === 'Shape') {
                 sceneContext.translate(this.x() * -1, this.y() * -1);
                 hitContext.translate(this.x() * -1, this.y() * -1);
@@ -3279,7 +3279,7 @@ var Kinetic = {};
          * @param {Container} newContainer
          * @returns {Kinetic.Node}
          * @example
-         * // move node from current layer into layer2
+         * // move node from current layerMovingObjects into layer2
          * node.moveTo(layer2);
          */
         moveTo: function(newContainer) {
@@ -3342,7 +3342,7 @@ var Kinetic = {};
             return this.parent;
         },
         /**
-         * get layer ancestor
+         * get layerMovingObjects ancestor
          * @method
          * @memberof Kinetic.Node.prototype
          * @returns {Kinetic.Layer}
@@ -6127,8 +6127,8 @@ var Kinetic = {};
      *  since the last animation frame.  The lastTime property is time in milliseconds that elapsed from the moment the animation started
      *  to the last animation frame.  The time property is the time in milliseconds that ellapsed from the moment the animation started
      *  to the current animation frame.  The frameRate property is the current frame rate in frames / second. Return false from function,
-     *  if you don't need to redraw layer/layers on some frames.
-     * @param {Kinetic.Layer|Array} [layers] layer(s) to be redrawn on each animation frame. Can be a layer, an array of layers, or null.
+     *  if you don't need to redraw layerMovingObjects/layers on some frames.
+     * @param {Kinetic.Layer|Array} [layers] layerMovingObjects(s) to be redrawn on each animation frame. Can be a layerMovingObjects, an array of layers, or null.
      *  Not specifying a node will result in no redraw.
      * @example
      * // move a node to the right at 50 pixels / second
@@ -6137,7 +6137,7 @@ var Kinetic = {};
      * var anim = new Kinetic.Animation(function(frame) {
      *   var dist = velocity * (frame.timeDiff / 1000);
      *   node.move(dist, 0);
-     * }, layer);
+     * }, layerMovingObjects);
      *
      * anim.start();
      */
@@ -6160,7 +6160,7 @@ var Kinetic = {};
          * set layers to be redrawn on each animation frame
          * @method
          * @memberof Kinetic.Animation.prototype
-         * @param {Kinetic.Layer|Array} [layers] layer(s) to be redrawn.&nbsp; Can be a layer, an array of layers, or null.  Not specifying a node will result in no redraw.
+         * @param {Kinetic.Layer|Array} [layers] layerMovingObjects(s) to be redrawn.&nbsp; Can be a layerMovingObjects, an array of layers, or null.  Not specifying a node will result in no redraw.
          */
         setLayers: function(layers) {
             var lays = [];
@@ -6190,7 +6190,7 @@ var Kinetic = {};
             return this.layers;
         },
         /**
-         * add layer.  Returns true if the layer was added, and false if it was not
+         * add layerMovingObjects.  Returns true if the layerMovingObjects was added, and false if it was not
          * @method
          * @memberof Kinetic.Animation.prototype
          * @param {Kinetic.Layer} layer
@@ -6202,7 +6202,7 @@ var Kinetic = {};
             if (layers) {
                 len = layers.length;
 
-                // don't add the layer if it already exists
+                // don't add the layerMovingObjects if it already exists
                 for (n = 0; n < len; n++) {
                     if (layers[n]._id === layer._id) {
                         return false;
@@ -6292,7 +6292,7 @@ var Kinetic = {};
          *  function.  if the animation object has specified node,
          *  we can add the node to the nodes hash to eliminate
          *  drawing the same node multiple times.  The node property
-         *  can be the stage itself or a layer
+         *  can be the stage itself or a layerMovingObjects
          */
         /*
          * WARNING: don't cache animations.length because it could change while
@@ -7311,10 +7311,10 @@ var Kinetic = {};
          * @returns {Kinetic.Collection}
          * @example
          * // get all children
-         * var children = layer.getChildren();
+         * var children = layerMovingObjects.getChildren();
          *
          * // get only circles
-         * var circles = layer.getChildren(function(node){
+         * var circles = layerMovingObjects.getChildren(function(node){
          *    return node.getClassName() === 'Circle';
          * });
          */
@@ -7388,7 +7388,7 @@ var Kinetic = {};
          * @param {...Kinetic.Node} child
          * @returns {Container}
          * @example
-         * layer.add(shape1, shape2, shape3);
+         * layerMovingObjects.add(shape1, shape2, shape3);
          */
         add: function(child) {
             if (arguments.length > 1) {
@@ -7433,17 +7433,17 @@ var Kinetic = {};
          * // select node with id foo
          * var node = stage.find('#foo');
          *
-         * // select nodes with name bar inside layer
-         * var nodes = layer.find('.bar');
+         * // select nodes with name bar inside layerMovingObjects
+         * var nodes = layerMovingObjects.find('.bar');
          *
-         * // select all groups inside layer
-         * var nodes = layer.find('Group');
+         * // select all groups inside layerMovingObjects
+         * var nodes = layerMovingObjects.find('Group');
          *
-         * // select all rectangles inside layer
-         * var nodes = layer.find('Rect');
+         * // select all rectangles inside layerMovingObjects
+         * var nodes = layerMovingObjects.find('Rect');
          *
-         * // select node with an id of foo or a name of bar inside layer
-         * var nodes = layer.find('#foo, .bar');
+         * // select node with an id of foo or a name of bar inside layerMovingObjects
+         * var nodes = layerMovingObjects.find('#foo, .bar');
          */
         find: function(selector) {
             var retArr = [],
@@ -7803,7 +7803,7 @@ var Kinetic = {};
             return [];
         },
         /**
-         * get canvas context tied to the layer
+         * get canvas context tied to the layerMovingObjects
          * @method
          * @memberof Kinetic.Shape.prototype
          * @returns {Kinetic.Context}
@@ -7812,7 +7812,7 @@ var Kinetic = {};
             return this.getLayer().getContext();
         },
         /**
-         * get canvas renderer tied to the layer.  Note that this returns a canvas renderer, not a canvas element
+         * get canvas renderer tied to the layerMovingObjects.  Note that this returns a canvas renderer, not a canvas element
          * @method
          * @memberof Kinetic.Shape.prototype
          * @returns {Kinetic.Canvas}
@@ -7903,7 +7903,7 @@ var Kinetic = {};
                         bufferContext.clear();
                         bufferContext.save();
                         bufferContext._applyLineJoin(this);
-                        // layer might be undefined if we are using cache before adding to layer
+                        // layerMovingObjects might be undefined if we are using cache before adding to layerMovingObjects
                         if (layer) {
                             layer._applyTransform(this, bufferContext, top);
                         } else {
@@ -7927,7 +7927,7 @@ var Kinetic = {};
                     // if buffer canvas is not needed
                     else {
                         context._applyLineJoin(this);
-                        // layer might be undefined if we are using cache before adding to layer
+                        // layerMovingObjects might be undefined if we are using cache before adding to layerMovingObjects
                         if (layer) {
                             layer._applyTransform(this, context, top);
                         } else {
@@ -9252,14 +9252,14 @@ var Kinetic = {};
             return this;
         },
         /**
-         * draw layer scene graphs
+         * draw layerMovingObjects scene graphs
          * @name draw
          * @method
          * @memberof Kinetic.Stage.prototype
          */
 
         /**
-         * draw layer hit graphs
+         * draw layerMovingObjects hit graphs
          * @name drawHit
          * @method
          * @memberof Kinetic.Stage.prototype
@@ -9468,7 +9468,7 @@ var Kinetic = {};
                 this.bufferCanvas.setSize(width, height);
                 this.bufferHitCanvas.setSize(width, height);
 
-                // set layer dimensions
+                // set layerMovingObjects dimensions
                 for(n = 0; n < len; n++) {
                     layer = layers[n];
                     layer.setSize(width, height);
@@ -9477,7 +9477,7 @@ var Kinetic = {};
             }
         },
         /**
-         * add layer or layers to stage
+         * add layerMovingObjects or layers to stage
          * @method
          * @memberof Kinetic.Stage.prototype
          * @param {...Kinetic.Layer} layer
@@ -9494,7 +9494,7 @@ var Kinetic = {};
             Kinetic.Container.prototype.add.call(this, layer);
             layer._setCanvasSize(this.width(), this.height());
 
-            // draw layer and append canvas to container
+            // draw layerMovingObjects and append canvas to container
             layer.draw();
             this.content.appendChild(layer.canvas._canvas);
 
@@ -9922,7 +9922,7 @@ var Kinetic = {};
             return this.canvas._canvas.createPNGStream();
         },
         /**
-         * get layer canvas
+         * get layerMovingObjects canvas
          * @method
          * @memberof Kinetic.BaseLayer.prototype
          */
@@ -9930,7 +9930,7 @@ var Kinetic = {};
             return this.canvas;
         },
         /**
-         * get layer hit canvas
+         * get layerMovingObjects hit canvas
          * @method
          * @memberof Kinetic.BaseLayer.prototype
          */
@@ -9938,7 +9938,7 @@ var Kinetic = {};
             return this.hitCanvas;
         },
         /**
-         * get layer canvas context
+         * get layerMovingObjects canvas context
          * @method
          * @memberof Kinetic.BaseLayer.prototype
          */
@@ -9946,7 +9946,7 @@ var Kinetic = {};
             return this.getCanvas().getContext();
         },
         /**
-         * clear scene and hit canvas contexts tied to the layer
+         * clear scene and hit canvas contexts tied to the layerMovingObjects
          * @method
          * @memberof Kinetic.BaseLayer.prototype
          * @param {Object} [bounds]
@@ -9955,8 +9955,8 @@ var Kinetic = {};
          * @param {Number} [bounds.width]
          * @param {Number} [bounds.height]
          * @example
-         * layer.clear();
-         * layer.clear(0, 0, 100, 100);
+         * layerMovingObjects.clear();
+         * layerMovingObjects.clear(0, 0, 100, 100);
          */
         clear: function(bounds) {
             this.getContext().clear(bounds);
@@ -10049,14 +10049,14 @@ var Kinetic = {};
             this.canvas.setSize(width, height);
         },
         /**
-         * get/set width of layer.getter return width of stage. setter doing nothing.
+         * get/set width of layerMovingObjects.getter return width of stage. setter doing nothing.
          * if you want change width use `stage.width(value);`
          * @name width
          * @method
          * @memberof Kinetic.BaseLayer.prototype
          * @returns {Number}
          * @example
-         * var width = layer.width();
+         * var width = layerMovingObjects.width();
          */
         getWidth : function() {
             if (this.parent) {
@@ -10064,17 +10064,17 @@ var Kinetic = {};
             }
         },
         setWidth : function() {
-            Kinetic.Util.warn('Can not change width of layer. Use "stage.width(value)" function instead.');
+            Kinetic.Util.warn('Can not change width of layerMovingObjects. Use "stage.width(value)" function instead.');
         },
         /**
-         * get/set height of layer.getter return height of stage. setter doing nothing.
+         * get/set height of layerMovingObjects.getter return height of stage. setter doing nothing.
          * if you want change height use `stage.height(value);`
          * @name height
          * @method
          * @memberof Kinetic.BaseLayer.prototype
          * @returns {Number}
          * @example
-         * var height = layer.height();
+         * var height = layerMovingObjects.height();
          */
         getHeight : function() {
             if (this.parent) {
@@ -10082,7 +10082,7 @@ var Kinetic = {};
             }
         },
         setHeight : function() {
-            Kinetic.Util.warn('Can not change height of layer. Use "stage.height(value)" function instead.');
+            Kinetic.Util.warn('Can not change height of layerMovingObjects. Use "stage.height(value)" function instead.');
         }
     });
     Kinetic.Util.extend(Kinetic.BaseLayer, Kinetic.Container);
@@ -10090,7 +10090,7 @@ var Kinetic = {};
     // add getters and setters
     Kinetic.Factory.addGetterSetter(Kinetic.BaseLayer, 'clearBeforeDraw', true);
     /**
-     * get/set clearBeforeDraw flag which determines if the layer is cleared or not
+     * get/set clearBeforeDraw flag which determines if the layerMovingObjects is cleared or not
      *  before drawing
      * @name clearBeforeDraw
      * @method
@@ -10099,13 +10099,13 @@ var Kinetic = {};
      * @returns {Boolean}
      * @example
      * // get clearBeforeDraw flag
-     * var clearBeforeDraw = layer.clearBeforeDraw();
+     * var clearBeforeDraw = layerMovingObjects.clearBeforeDraw();
      *
      * // disable clear before draw
-     * layer.clearBeforeDraw(false);
+     * layerMovingObjects.clearBeforeDraw(false);
      *
      * // enable clear before draw
-     * layer.clearBeforeDraw(true);
+     * layerMovingObjects.clearBeforeDraw(true);
      */
 
     Kinetic.Collection.mapMethods(Kinetic.BaseLayer);
@@ -10152,7 +10152,7 @@ var Kinetic = {};
         _validateAdd: function(child) {
             var type = child.getType();
             if (type !== 'Group' && type !== 'Shape') {
-                Kinetic.Util.error('You may only add groups and shapes to a layer.');
+                Kinetic.Util.error('You may only add groups and shapes to a layerMovingObjects.');
             }
         },
         /**
@@ -10263,7 +10263,7 @@ var Kinetic = {};
             return this;
         },
         // the apply transform method is handled by the Layer and FastLayer class
-        // because it is up to the layer to decide if an absolute or relative transform
+        // because it is up to the layerMovingObjects to decide if an absolute or relative transform
         // should be used
         _applyTransform: function(shape, context, top) {
             var m = shape.getAbsoluteTransform(top).getMatrix();
@@ -10282,7 +10282,7 @@ var Kinetic = {};
             return this;
         },
         /**
-         * clear scene and hit canvas contexts tied to the layer
+         * clear scene and hit canvas contexts tied to the layerMovingObjects
          * @method
          * @memberof Kinetic.Layer.prototype
          * @param {Object} [bounds]
@@ -10291,8 +10291,8 @@ var Kinetic = {};
          * @param {Number} [bounds.width]
          * @param {Number} [bounds.height]
          * @example
-         * layer.clear();
-         * layer.clear(0, 0, 100, 100);
+         * layerMovingObjects.clear();
+         * layerMovingObjects.clear(0, 0, 100, 100);
          */
         clear: function(bounds) {
             this.getContext().clear(bounds);
@@ -10345,7 +10345,7 @@ var Kinetic = {};
     Kinetic.Factory.addGetterSetter(Kinetic.Layer, 'hitGraphEnabled', true);
     /**
      * get/set hitGraphEnabled flag.  Disabling the hit graph will greatly increase
-     *  draw performance because the hit graph will not be redrawn each time the layer is
+     *  draw performance because the hit graph will not be redrawn each time the layerMovingObjects is
      *  drawn.  This, however, also disables mouse/touch event detection
      * @name hitGraphEnabled
      * @method
@@ -10354,13 +10354,13 @@ var Kinetic = {};
      * @returns {Boolean}
      * @example
      * // get hitGraphEnabled flag
-     * var hitGraphEnabled = layer.hitGraphEnabled();
+     * var hitGraphEnabled = layerMovingObjects.hitGraphEnabled();
      *
      * // disable hit graph
-     * layer.hitGraphEnabled(false);
+     * layerMovingObjects.hitGraphEnabled(false);
      *
      * // enable hit graph
-     * layer.hitGraphEnabled(true);
+     * layerMovingObjects.hitGraphEnabled(true);
      */
     Kinetic.Collection.mapMethods(Kinetic.Layer);
 })();
@@ -10376,7 +10376,7 @@ var Kinetic = {};
         _validateAdd: function(child) {
             var type = child.getType();
             if (type !== 'Shape') {
-                Kinetic.Util.error('You may only add shapes to a fast layer.');
+                Kinetic.Util.error('You may only add shapes to a fast layerMovingObjects.');
             }
         },
         _setCanvasSize: function(width, height) {
@@ -10401,7 +10401,7 @@ var Kinetic = {};
             return this;
         },
         // the apply transform method is handled by the Layer and FastLayer class
-        // because it is up to the layer to decide if an absolute or relative transform
+        // because it is up to the layerMovingObjects to decide if an absolute or relative transform
         // should be used
         _applyTransform: function(shape, context, top) {
             if (!top || top._id !== this._id) {
@@ -10414,7 +10414,7 @@ var Kinetic = {};
             return this;
         },
         /**
-         * clear scene and hit canvas contexts tied to the layer
+         * clear scene and hit canvas contexts tied to the layerMovingObjects
          * @method
          * @memberof Kinetic.FastLayer.prototype
          * @param {Object} [bounds]
@@ -10423,8 +10423,8 @@ var Kinetic = {};
          * @param {Number} [bounds.width]
          * @param {Number} [bounds.height]
          * @example
-         * layer.clear();
-         * layer.clear(0, 0, 100, 100);
+         * layerMovingObjects.clear();
+         * layerMovingObjects.clear(0, 0, 100, 100);
          */
         clear: function(bounds) {
             this.getContext().clear(bounds);
@@ -12738,7 +12738,7 @@ var Kinetic = {};
             this._updated = true;
             var that = this;
             this.anim = new Kinetic.Animation(function() {
-                // if we don't need to redraw layer we should return false
+                // if we don't need to redraw layerMovingObjects we should return false
                 var updated = that._updated;
                 that._updated = false;
                 return updated;
@@ -12810,7 +12810,7 @@ var Kinetic = {};
             /*
              * animation object has no executable function because
              *  the updates are done with a fixed FPS with the setInterval
-             *  below.  The anim object only needs the layer reference for
+             *  below.  The anim object only needs the layerMovingObjects reference for
              *  redraw
              */
             this.anim.setLayers(layer);
