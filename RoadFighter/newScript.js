@@ -1,8 +1,10 @@
+// TODO: Move constants to separate file
 var CONST = {
 	width: 600,
 	height: 600,
 	midLineHeight: 50,
-	midLineWidth: 10
+	midLineWidth: 10,
+    count: 30
 };
 
 var speed = 10,
@@ -65,12 +67,35 @@ var anim = new Kinetic.Animation(function(frame){
 	for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 		var rectMidLine = midLaneBoxes[i],
 			newY = rectMidLine.getY() + speed;
-		console.log(startY);
 		rectMidLine.setY(newY);
 	}	
 },layerMovingObjects);
 
-var enemyCarsAnimation = new Kinetic.Animation(enemyCars.animationFunction, enemyCarsLayer);
+var carsList = enemyCars.cars;
+var enemyCarsAnimation = new Kinetic.Animation(function(frame){
+    // TODO Try to move the whole function to the module
+    for (i = 0, len = carsList.length; i < len; i += 1) {
+        var checkedCar = carsList[i];
+
+        //TODO Check if cars get clustered with time because of smaller random range
+        if (checkedCar.getY() > CONST.height) {
+            // TODO Move randomization of car position to module
+            var randomY = (600 + (Math.random() * 3400)) * -1,
+                randomX = 150 + (Math.random() * 300);
+
+            checkedCar.setX(randomX);
+            checkedCar.setY(randomY);
+        }
+    }
+
+    for (i = 0, len = carsList.length; i < len; i += 1) {
+        var currentCar = carsList[i],
+            currentY = currentCar.getY(),
+            newY = currentY + 2;
+
+        currentCar.setY(newY);
+    }
+}, enemyCarsLayer);
 
 stage.add(layerMovingObjects);
 stage.add (enemyCarsLayer);
