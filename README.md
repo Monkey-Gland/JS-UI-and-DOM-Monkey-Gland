@@ -1,3 +1,15 @@
+﻿Todo:
+3 layers:
+1) layerMovingObjects -> с движещи се обекти (дървета, осова линия, тротоар, тн.) -> Георги
+2) layerCar -> key moves -> Илиана
+	methods
+3) layerEnemyCars -> Дечо
+
+4) Loading menu
+5) Info, score, timing, buttons
+
+
+
 JavaScript DOM & UI: Teamwork Assignment
 This document describes the teamwork assignment for Telerik Academy students in JavaScript UI & DOM course
 

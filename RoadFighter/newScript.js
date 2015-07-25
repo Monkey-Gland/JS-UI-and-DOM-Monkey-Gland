@@ -49,9 +49,7 @@ for (var i = 0, cnt = CONST.height/(CONST.midLineHeight*2); i < cnt + 1; i+=1) {
 }
 for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 	layer.add(midLaneBoxes[i]);
-};
-
-//layer.add(midLaneBoxes);	
+};	
 
 var anim = new Kinetic.Animation(function(frame){
 	var startY = midLaneBoxes[0].getY();
@@ -59,7 +57,7 @@ var anim = new Kinetic.Animation(function(frame){
 		for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 			var boxY = midLaneBoxes[i].getY(),
 				currentBox = midLaneBoxes[i];
-			currentBox.setY(boxY - 100);
+			currentBox.setY(boxY - 2* CONST.midLineHeight);
 		}
 	}
 
