@@ -2,11 +2,15 @@ var CONST = {
 	width: 600,
 	height: 600,
 	midLineHeight: 50,
-	midLineWidth: 10
+	midLineWidth: 10,
+	sideLaneWidth: 10,
+	sideLaneHeight: 20,
+	treeRadius: 25
 };
 
 var speed = 2,
-	midLaneBoxes = [];
+	midLaneBoxes = [],
+	sideLaneBoxes = [];
 
 var stage = new Kinetic.Stage({
     container: 'canvas',
@@ -36,7 +40,7 @@ var rectRoad = new Kinetic.Rect({
 layerMovingObjects.add(rect);
 layerMovingObjects.add(rectRoad);
 
-
+//filling centre line boxes
 for (var i = 0, cnt = CONST.height/(CONST.midLineHeight*2); i < cnt + 1; i+=1) {
 	midLaneBoxes.push(
 					new Kinetic.Rect({
@@ -48,12 +52,61 @@ for (var i = 0, cnt = CONST.height/(CONST.midLineHeight*2); i < cnt + 1; i+=1) {
 						})
 					);	
 }
+
 for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 	layerMovingObjects.add(midLaneBoxes[i]);
 };	
 
+//filling side lane boxes
+for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 1; i+=1) {
+	if(i%2){
+		sideLaneBoxes.push(
+					new Kinetic.Rect({
+						x: CONST.width/4 - CONST.sideLaneWidth,
+						y: i* CONST.sideLaneHeight,
+						width: CONST.midLineWidth,
+						height: CONST.midLineHeight,
+						fill:'black'
+						})
+		);
+		sideLaneBoxes.push(
+					new Kinetic.Rect({
+						x: 3*CONST.width/4,
+						y: i* CONST.sideLaneHeight,
+						width: CONST.midLineWidth,
+						height: CONST.midLineHeight,
+						fill:'black'
+						})
+		);
+	} else {
+		sideLaneBoxes.push(
+					new Kinetic.Rect({
+						x: CONST.width/4 - CONST.sideLaneWidth,
+						y: i* CONST.sideLaneHeight,
+						width: CONST.midLineWidth,
+						height: CONST.midLineHeight,
+						fill:'white'
+						})
+		);
+		sideLaneBoxes.push(
+					new Kinetic.Rect({
+						x: 3*CONST.width/4,
+						y: i* CONST.sideLaneHeight,
+						width: CONST.midLineWidth,
+						height: CONST.midLineHeight,
+						fill:'white'
+						})
+		);
+	}					
+}
+for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
+	layerMovingObjects.add(sideLaneBoxes[i]);
+};	
+
+
 var anim = new Kinetic.Animation(function(frame){
 	var startY = midLaneBoxes[0].getY();
+	//move centre line logic
 	if(startY === 0){
 		for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 			var boxY = midLaneBoxes[i].getY(),
@@ -65,9 +118,29 @@ var anim = new Kinetic.Animation(function(frame){
 	for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 		var rectMidLine = midLaneBoxes[i],
 			newY = rectMidLine.getY() + speed;
+
 		console.log(startY);
 		rectMidLine.setY(newY);
-	}	
+	}
+
+	//move side lane logic
+	var sideLaneFirstY = sideLaneBoxes[0].getY();
+
+	if(sideLaneFirstY === 0){
+		for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
+			var boxY = sideLaneBoxes[i].getY(),
+				currentBox = sideLaneBoxes[i];
+			currentBox.setY(boxY - CONST.sideLaneHeight);
+		}
+	}
+
+	for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
+		var rectSideLane = sideLaneBoxes[i],
+			newY = rectSideLane.getY() + speed;
+
+		rectSideLane.setY(newY);	
+	}
+
 },layerMovingObjects);
 
 var enemyCarsAnimation = new Kinetic.Animation(enemyCars.animationFunction, enemyCarsLayer);
@@ -120,5 +193,5 @@ window.addEventListener('keydown', function(speedChange) {
 
 stage.add(layerMovingObjects);
 stage.add (enemyCarsLayer);
-anim.start();
+//anim.start();
 enemyCarsAnimation.start();
