@@ -4,9 +4,8 @@
 2) layerCar -> key moves -> Илиана
 	methods
 3) layerEnemyCars -> Дечо
-
 4) Loading menu -> Добромира
-5) Info, score, timing, buttons
+5) Info, score, timing, buttons --> Петя
 
 
 
