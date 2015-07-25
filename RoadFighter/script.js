@@ -7,7 +7,11 @@ car.setAttributeNS(null, 'height', 10);
 var roadFighter = (function () {
     var roadFighter = Object.create({});
 
-    roadFighter.Object.defineProperty(roadFighter, 'init', {
+    var stage = new Kinetic.Stage();
+
+    var layer - new
+
+    Object.defineProperty(roadFighter, 'init', {
         value:function(canvas,screenWidth,screenHeight)
         {
             this.canvas = canvas;
