@@ -10,7 +10,8 @@ var CONST = {
 
 var speed = 2,
 	midLaneBoxes = [],
-	sideLaneBoxes = [];
+	sideLaneBoxes = []
+	trees = [];
 
 var stage = new Kinetic.Stage({
     container: 'canvas',
@@ -102,6 +103,32 @@ for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
 	layerMovingObjects.add(sideLaneBoxes[i]);
 };	
 
+//filling trees
+for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
+	trees.push(
+				new Kinetic.Circle({
+					x: CONST.height/10,
+					y: i * 4 * CONST.treeRadius,
+					radius: CONST.treeRadius,
+					fill:'darkgreen',
+					stroke: 'black'
+				})
+	);
+
+	trees.push(
+				new Kinetic.Circle({
+					x: 9 * CONST.height/10,
+					y: i * 4 * CONST.treeRadius,
+					radius: CONST.treeRadius,
+					fill:'darkgreen',
+					stroke: 'black'
+				})
+	);	
+}
+for (var i = 0, len = trees.length; i < len; i+=1) {
+	layerMovingObjects.add(trees[i]);
+};
+
 
 var anim = new Kinetic.Animation(function(frame){
 	var startY = midLaneBoxes[0].getY();
@@ -138,6 +165,24 @@ var anim = new Kinetic.Animation(function(frame){
 			newY = rectSideLane.getY() + speed;
 
 		rectSideLane.setY(newY);	
+	}
+
+	//move trees logic
+	var treeFirstY = trees[0].getY();
+
+	if(treeFirstY === 0){
+		for (var i = 0, len = trees.length; i < len; i+=1) {
+			var treeY = trees[i].getY(),
+				currentTree = trees[i];
+			currentTree.setY(treeY - 4 * CONST.treeRadius);
+		}
+	}
+
+	for (var i = 0, len = trees.length; i < len; i+=1) {
+		var tree = trees[i],
+			newY = tree.getY() + speed;
+
+		tree.setY(newY);	
 	}
 
 },layerMovingObjects);
@@ -192,5 +237,5 @@ window.addEventListener('keydown', function(speedChange) {
 
 stage.add(layerMovingObjects);
 stage.add (enemyCarsLayer);
-//anim.start();
+anim.start();
 enemyCarsAnimation.start();
