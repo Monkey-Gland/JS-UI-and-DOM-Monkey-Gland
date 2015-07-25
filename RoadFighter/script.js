@@ -5,11 +5,23 @@ car.setAttributeNS(null,'width',10);
 car.setAttributeNS(null, 'height', 10);
 
 var roadFighter = (function () {
-    var roadFighter = Object.create({});
+    var roadFighter = Object.create({}),
+        screenContainer = document.getElementById("#screen");
 
-    var stage = new Kinetic.Stage();
+    var stage = new Kinetic.Stage({
+        container: screenContainer,
+        height: 500,
+        width: 700
+    });
 
-    var layer - new
+    var backgroundLayer = new Kinetic.Layer();
+
+    var rect = Kinetic.Rect({
+        x: 0,
+        y:0,
+        width: stage.width,
+        height: stage.height
+    });
 
     Object.defineProperty(roadFighter, 'init', {
         value:function(canvas,screenWidth,screenHeight)
