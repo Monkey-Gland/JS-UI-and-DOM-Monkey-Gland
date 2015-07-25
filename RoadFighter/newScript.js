@@ -5,7 +5,7 @@ var CONST = {
 	midLineWidth: 10,
 	sideLaneWidth: 10,
 	sideLaneHeight: 20,
-	treeRadius: 25
+	treeRadius:25
 };
 
 var speed = 2,
@@ -52,7 +52,6 @@ for (var i = 0, cnt = CONST.height/(CONST.midLineHeight*2); i < cnt + 1; i+=1) {
 						})
 					);	
 }
-
 for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 	layerMovingObjects.add(midLaneBoxes[i]);
 };	
