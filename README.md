@@ -5,7 +5,7 @@
 	methods
 3) layerEnemyCars -> Дечо
 
-4) Loading menu
+4) Loading menu -> Добромира
 5) Info, score, timing, buttons
 
 
