@@ -64,8 +64,8 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 1; i+=1) {
 					new Kinetic.Rect({
 						x: CONST.width/4 - CONST.sideLaneWidth,
 						y: i* CONST.sideLaneHeight,
-						width: CONST.midLineWidth,
-						height: CONST.midLineHeight,
+						width: CONST.sideLaneWidth,
+						height: CONST.sideLaneHeight,
 						fill:'black'
 						})
 		);
@@ -73,8 +73,8 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 1; i+=1) {
 					new Kinetic.Rect({
 						x: 3*CONST.width/4,
 						y: i* CONST.sideLaneHeight,
-						width: CONST.midLineWidth,
-						height: CONST.midLineHeight,
+						width: CONST.sideLaneWidth,
+						height: CONST.sideLaneHeight,
 						fill:'black'
 						})
 		);
@@ -83,8 +83,8 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 1; i+=1) {
 					new Kinetic.Rect({
 						x: CONST.width/4 - CONST.sideLaneWidth,
 						y: i* CONST.sideLaneHeight,
-						width: CONST.midLineWidth,
-						height: CONST.midLineHeight,
+						width: CONST.sideLaneWidth,
+						height: CONST.sideLaneHeight,
 						fill:'white'
 						})
 		);
@@ -92,12 +92,12 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 1; i+=1) {
 					new Kinetic.Rect({
 						x: 3*CONST.width/4,
 						y: i* CONST.sideLaneHeight,
-						width: CONST.midLineWidth,
-						height: CONST.midLineHeight,
+						width: CONST.sideLaneWidth,
+						height: CONST.sideLaneHeight,
 						fill:'white'
 						})
 		);
-	}					
+	}				
 }
 for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
 	layerMovingObjects.add(sideLaneBoxes[i]);
@@ -131,8 +131,9 @@ for (var i = 0, len = trees.length; i < len; i+=1) {
 
 
 var anim = new Kinetic.Animation(function(frame){
+	
 	var startY = midLaneBoxes[0].getY();
-	//move centre line logic
+	
 	if(startY >= 0){
 		for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 			var boxY = midLaneBoxes[i].getY(),
@@ -156,7 +157,7 @@ var anim = new Kinetic.Animation(function(frame){
 		for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
 			var boxY = sideLaneBoxes[i].getY(),
 				currentBox = sideLaneBoxes[i];
-			currentBox.setY(boxY - CONST.sideLaneHeight);
+			currentBox.setY(boxY - 2 * CONST.sideLaneHeight);
 		}
 	}
 
