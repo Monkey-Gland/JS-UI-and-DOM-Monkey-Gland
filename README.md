@@ -6,6 +6,7 @@
 3) layerEnemyCars -> Дечо
 4) Loading menu -> Добромира
 5) Info, score, timing, buttons --> Петя
+6) Collision between our car and enemy car -> Nikola
 
 
 
