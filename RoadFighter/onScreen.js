@@ -1,7 +1,8 @@
 var time = 0,
 	score = 0,
 	minutes, seconds, miliseconds,
-	running = false;
+	running = false,
+	score = 0;
 
 function startPause(){
 	if(!running){
@@ -48,13 +49,18 @@ function increment(){
 				progressBar(seconds);
 			}
 
+			if(seconds % 5 == 0 && miliseconds == 0) {
+				scoreAdd();
+			}
+
 			increment();
 		}, 100);
 	}
 }
 
-function scoreCount(){
-
+function scoreAdd(){
+	score += 10;
+	document.getElementById('score').innerHTML = score;
 }
 
 function progressBar(time) {
