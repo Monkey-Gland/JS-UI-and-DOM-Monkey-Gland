@@ -27,6 +27,17 @@ var ENEMY_CONST = {
     minVertical: -4000
 };
 
+var MYCAR_CONST = {
+    width: 80,
+    height: 160,
+    leftArrowKey: 37,
+    rightArrowKey: 39,
+    upArrowKey: 38,
+    displacement: 8,
+    speedUp: 2,
+    speedDown:5
+};
+
 var speed = 2,
     midLaneBoxes = [],
     sideLaneBoxes = [],
