@@ -133,7 +133,7 @@ for (var i = 0, len = trees.length; i < len; i+=1) {
 var anim = new Kinetic.Animation(function(frame){
 	var startY = midLaneBoxes[0].getY();
 	//move centre line logic
-	if(startY === 0){
+	if(startY >= 0){
 		for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 			var boxY = midLaneBoxes[i].getY(),
 				currentBox = midLaneBoxes[i];
@@ -152,7 +152,7 @@ var anim = new Kinetic.Animation(function(frame){
 	//move side lane logic
 	var sideLaneFirstY = sideLaneBoxes[0].getY();
 
-	if(sideLaneFirstY === 0){
+	if(sideLaneFirstY >= 0){
 		for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
 			var boxY = sideLaneBoxes[i].getY(),
 				currentBox = sideLaneBoxes[i];
@@ -170,7 +170,7 @@ var anim = new Kinetic.Animation(function(frame){
 	//move trees logic
 	var treeFirstY = trees[0].getY();
 
-	if(treeFirstY === 0){
+	if(treeFirstY >= 0){
 		for (var i = 0, len = trees.length; i < len; i+=1) {
 			var treeY = trees[i].getY(),
 				currentTree = trees[i];
