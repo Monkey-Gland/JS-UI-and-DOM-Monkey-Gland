@@ -13,7 +13,15 @@
 
 #timerContainer {
     float : right;
-    margin-right : 35%;
+    margin-right : 65%;
+}
+
+#progressBar {
+    width : 550px;
+    border : 0px;
+    background-color : #f3f3f3;
+    height : 18px;
+    border-radius : 9px;
 }
 
 canvas {
