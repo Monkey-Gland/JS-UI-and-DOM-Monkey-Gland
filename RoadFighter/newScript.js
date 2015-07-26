@@ -207,7 +207,7 @@ var enemyCarsAnimation = new Kinetic.Animation(function(frame){
     for (i = 0, len = carsList.length; i < len; i += 1) {
         var currentCar = carsList[i],
             currentY = currentCar.getY(),
-            newY = currentY + 2;
+            newY = currentY + 2 + speed;
 
         currentCar.setY(newY);
     }
