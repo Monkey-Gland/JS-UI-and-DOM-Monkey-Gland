@@ -5,6 +5,17 @@
     border: 1px solid black;
 }
 
+#timer {
+    width : 120px;
+    height : 25px;
+    font-family : Consolas;
+}
+
+#timerContainer {
+    float : right;
+    margin-right : 35%;
+}
+
 canvas {
     left: 33%;
     margin-left: 10px;
