@@ -1,12 +1,14 @@
 var CONST = {
-    width: 600,
-    height: 600,
+    width: 700,
+    height: 800,
     midLineHeight: 50,
     midLineWidth: 10,
     sideLaneWidth: 10,
     sideLaneHeight: 20,
     treeRadius: 25,
     shadowDistance: 7,
+    imageHeight: 100,
+    imageWidth: 100,
     enemyImageSources: [
         "images/blue_car.png",
         "images/green_car.png",
@@ -16,7 +18,7 @@ var CONST = {
 };
 
 var ENEMY_CONST = {
-    count: 10,
+    count: 5,
     width: 40,
     height: 100,
     maxHorizontal: 450,

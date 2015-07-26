@@ -7,12 +7,12 @@ var stage = new Kinetic.Stage({
 var layerMovingObjects = new Kinetic.Layer(),
     enemyCarsLayer = enemyCars.getLayer();
 
-var rect = new Kinetic.Rect({
+var rectSand = new Kinetic.Rect({
     x:0,
     y:0,
     width:CONST.width,
     height:CONST.height,
-    fill:"green"
+    fill:"DarkKhaki"
 });
 
 var rectRoad = new Kinetic.Rect({
@@ -23,16 +23,16 @@ var rectRoad = new Kinetic.Rect({
 	fill: 'grey'
 });
 
-var rectSand = new Kinetic.Rect({
+var rectGreen = new Kinetic.Rect({
 	x: CONST.width/8,
 	y: 0,
 	width: 3*CONST.width/4,
 	height: CONST.height,
-	fill: 'DarkKhaki'
+	fill: 'green'
 });
 
-layerMovingObjects.add(rect);
 layerMovingObjects.add(rectSand);
+layerMovingObjects.add(rectGreen);
 layerMovingObjects.add(rectRoad);
 
 //filling centre line boxes
@@ -114,26 +114,31 @@ for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
 };	
 
 //filling trees
-for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
-	trees.push(
-				new Kinetic.Circle({
-					x: CONST.height/15,
-					y: i * 4 * CONST.treeRadius,
-					radius: CONST.treeRadius,
-					fill:'darkgreen',
-					stroke: 'black'					
-				})
-	);
+var imageTree = new Image();
+imageTree.src = 'images/Palm_Tree.png';
 
-	trees.push(
-				new Kinetic.Circle({
-					x: 14 * CONST.height/15,
-					y: i * 4 * CONST.treeRadius,
-					radius: CONST.treeRadius,
-					fill:'darkgreen',
-					stroke: 'black'					
-				})
-	);	
+for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
+	treeLeft = new Kinetic.Image({
+			x: 5,
+            y: i * 4 * CONST.treeRadius,
+            image: imageTree,
+            width: CONST.imageWidth,
+            height: CONST.imageHeight,
+            draggable: true
+    });
+
+    treeRight = new Kinetic.Image({
+			x: CONST.width - CONST.imageWidth + 5,
+            y: i * 4 * CONST.treeRadius,
+            image: imageTree,
+            width: CONST.imageWidth,
+            height: CONST.imageHeight,
+            draggable: true
+    });
+
+
+	trees.push(treeLeft);
+	trees.push(treeRight);	
 }
 for (var i = 0, len = trees.length; i < len; i+=1) {
 	layerMovingObjects.add(trees[i]);
