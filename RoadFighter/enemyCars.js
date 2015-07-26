@@ -6,15 +6,6 @@ var enemyCars = (function() {
         enemyCarsAnimation;
 
     // TODO: move constants to another file
-    var ENEMY_CONST = {
-        count: 20,
-        width: 40,
-        height: 100,
-        maxHorizontal: 450,
-        minHorizontal:150,
-        maxVertical: 600,
-        minVertical: -4000
-    };
 
     for (i = 0; i < ENEMY_CONST.count; i += 1) {
         _enemyCarsList.push(new Kinetic.Rect({

@@ -1,18 +1,3 @@
-var CONST = {
-	width: 600,
-	height: 600,
-	midLineHeight: 50,
-	midLineWidth: 10,
-	sideLaneWidth: 10,
-	sideLaneHeight: 20,
-	treeRadius:25
-};
-
-var speed = 2,
-	midLaneBoxes = [],
-	sideLaneBoxes = [],
-	trees = [];
-
 var stage = new Kinetic.Stage({
     container: 'canvas',
     width: CONST.width,
