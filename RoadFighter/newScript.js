@@ -23,7 +23,16 @@ var rectRoad = new Kinetic.Rect({
 	fill: 'grey'
 });
 
+var rectSand = new Kinetic.Rect({
+	x: CONST.width/8,
+	y: 0,
+	width: 3*CONST.width/4,
+	height: CONST.height,
+	fill: 'DarkKhaki'
+});
+
 layerMovingObjects.add(rect);
+layerMovingObjects.add(rectSand);
 layerMovingObjects.add(rectRoad);
 
 //filling centre line boxes
@@ -92,7 +101,7 @@ for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
 for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
 	trees.push(
 				new Kinetic.Circle({
-					x: CONST.height/10,
+					x: CONST.height/15,
 					y: i * 4 * CONST.treeRadius,
 					radius: CONST.treeRadius,
 					fill:'darkgreen',
@@ -102,7 +111,7 @@ for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
 
 	trees.push(
 				new Kinetic.Circle({
-					x: 9 * CONST.height/10,
+					x: 14 * CONST.height/15,
 					y: i * 4 * CONST.treeRadius,
 					radius: CONST.treeRadius,
 					fill:'darkgreen',
@@ -172,9 +181,6 @@ var anim = new Kinetic.Animation(function(frame){
 	}
 
 },layerMovingObjects);
-
-
-
 
 var carsList = enemyCars.cars;
 var enemyCarsAnimation = enemyCars.animation;
