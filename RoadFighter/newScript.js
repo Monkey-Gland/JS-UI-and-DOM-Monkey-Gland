@@ -131,7 +131,7 @@ var anim = new Kinetic.Animation(function(frame){
 		var rectMidLine = midLaneBoxes[i],
 			newY = rectMidLine.getY() + speed;
 
-		console.log(startY);
+		//console.log(startY);
 		rectMidLine.setY(newY);
 	}
 

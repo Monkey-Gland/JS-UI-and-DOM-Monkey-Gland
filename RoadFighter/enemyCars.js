@@ -5,16 +5,31 @@ var enemyCars = (function() {
         layer = new Kinetic.Layer(),
         enemyCarsAnimation;
 
-    // TODO: move constants to another file
+    function getRandomColoredCar () {
+        var randomCar,
+            imageObj = new Image(),
+            carVariationsAvailable = CONST.enemyImageSources.length - 1,
+            randomSeed = Math.round(Math.random() * carVariationsAvailable);
+
+        imageObj.src = CONST.enemyImageSources[randomSeed];
+
+        randomCar = new Kinetic.Image({
+            x: CONST.width / 2 + ((CONST.width / 4) / 3),
+            y: CONST.height / 1.4,
+            image: imageObj,
+            width: 80,
+            height: 160,
+            draggable: true
+        });
+
+        console.log(randomCar);
+
+        return randomCar;
+    }
 
     for (i = 0; i < ENEMY_CONST.count; i += 1) {
-        _enemyCarsList.push(new Kinetic.Rect({
-            x: ENEMY_CONST.minHorizontal + (Math.random() * (ENEMY_CONST.maxHorizontal - ENEMY_CONST.minHorizontal)),
-            y: ENEMY_CONST.minVertical + (Math.random() * (ENEMY_CONST.maxVertical - ENEMY_CONST.minVertical)),
-            width: ENEMY_CONST.width,
-            height: ENEMY_CONST.height,
-            fill: "#000"
-        }));
+        console.log(getRandomColoredCar());
+        _enemyCarsList.push(getRandomColoredCar());
     }
 
     for (i = 0, len = _enemyCarsList.length; i < len; i += 1) {
