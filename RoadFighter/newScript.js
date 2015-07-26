@@ -52,7 +52,7 @@ for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 };	
 
 //filling side lane boxes
-for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 1; i+=1) {
+for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 2; i+=1) {
 	if(i%2){
 		sideLaneBoxes.push(
 					new Kinetic.Rect({
