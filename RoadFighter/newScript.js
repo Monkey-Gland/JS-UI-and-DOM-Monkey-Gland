@@ -187,7 +187,31 @@ var anim = new Kinetic.Animation(function(frame){
 
 },layerMovingObjects);
 
-var enemyCarsAnimation = new Kinetic.Animation(enemyCars.animationFunction, enemyCarsLayer);
+var carsList = enemyCars.cars;
+var enemyCarsAnimation = new Kinetic.Animation(function(frame){
+    // TODO Try to move the whole function to the module
+    for (i = 0, len = carsList.length; i < len; i += 1) {
+        var checkedCar = carsList[i];
+
+        //TODO Check if cars get clustered with time because of smaller random range
+        if (checkedCar.getY() > CONST.height) {
+            // TODO Move randomization of car position to module
+            var randomY = (600 + (Math.random() * 3400)) * -1,
+                randomX = 150 + (Math.random() * 300);
+
+            checkedCar.setX(randomX);
+            checkedCar.setY(randomY);
+        }
+    }
+
+    for (i = 0, len = carsList.length; i < len; i += 1) {
+        var currentCar = carsList[i],
+            currentY = currentCar.getY(),
+            newY = currentY + 2;
+
+        currentCar.setY(newY);
+    }
+}, enemyCarsLayer);
 
 var carLeyer = new Kinetic.Layer();
 
