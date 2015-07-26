@@ -60,7 +60,11 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 1; i+=1) {
 						y: i* CONST.sideLaneHeight,
 						width: CONST.sideLaneWidth,
 						height: CONST.sideLaneHeight,
-						fill:'black'
+						fill:'black',
+						shadowColor: 'black',
+						shadowBlur: 10,
+        				shadowOffset: {x:CONST.shadowDistance,y:CONST.shadowDistance},
+        				shadowOpacity: 0.5
 						})
 		);
 		sideLaneBoxes.push(
@@ -69,7 +73,11 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 1; i+=1) {
 						y: i* CONST.sideLaneHeight,
 						width: CONST.sideLaneWidth,
 						height: CONST.sideLaneHeight,
-						fill:'black'
+						fill:'black',
+						shadowColor: 'black',
+						shadowBlur: 10,
+        				shadowOffset: {x:CONST.shadowDistance,y:CONST.shadowDistance},
+        				shadowOpacity: 0.5
 						})
 		);
 	} else {
@@ -79,7 +87,11 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 1; i+=1) {
 						y: i* CONST.sideLaneHeight,
 						width: CONST.sideLaneWidth,
 						height: CONST.sideLaneHeight,
-						fill:'white'
+						fill:'white',
+						shadowColor: 'black',
+						shadowBlur: 10,
+        				shadowOffset: {x:CONST.shadowDistance,y:CONST.shadowDistance},
+        				shadowOpacity: 0.5
 						})
 		);
 		sideLaneBoxes.push(
@@ -88,7 +100,11 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 1; i+=1) {
 						y: i* CONST.sideLaneHeight,
 						width: CONST.sideLaneWidth,
 						height: CONST.sideLaneHeight,
-						fill:'white'
+						fill:'white',
+						shadowColor: 'black',
+						shadowBlur: 10,
+        				shadowOffset: {x:CONST.shadowDistance,y:CONST.shadowDistance},
+        				shadowOpacity: 0.5
 						})
 		);
 	}				
@@ -105,7 +121,7 @@ for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
 					y: i * 4 * CONST.treeRadius,
 					radius: CONST.treeRadius,
 					fill:'darkgreen',
-					stroke: 'black'
+					stroke: 'black'					
 				})
 	);
 
@@ -115,7 +131,7 @@ for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
 					y: i * 4 * CONST.treeRadius,
 					radius: CONST.treeRadius,
 					fill:'darkgreen',
-					stroke: 'black'
+					stroke: 'black'					
 				})
 	);	
 }
