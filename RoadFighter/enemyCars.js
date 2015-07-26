@@ -5,24 +5,24 @@ var enemyCars = (function() {
         layer = new Kinetic.Layer(),
         enemyCarsAnimation,
         Randomizer = {
-          getRandomCarSeed: function(carVariationsAvailable) {
+          getRandomCarSeed: function() {
+              var carVariationsAvailable = CONST.enemyImageSources.length - 1;
+
               return Math.round(Math.random() * carVariationsAvailable);
           },
           getRandomCarX: function() {
-              return (150 + (Math.random() * 300));
+              return (CONST.width / 4 + (Math.random() * (CONST.width / 2 - CONST.imageWidth)));
           },
           getRandomCarY: function() {
-              return ((600 + (Math.random() * 3400)) * -1);
+              return ((CONST.height + (Math.random() * CONST.height * ENEMY_CONST.spawnRangeCoefficient)) * -1);
           }
         };
 
     function getRandomColoredCar () {
         var randomCar,
-            imageObj = new Image(),
-            carVariationsAvailable = CONST.enemyImageSources.length - 1,
-            randomSeed = Randomizer.getRandomCarSeed(carVariationsAvailable);
+            imageObj = new Image();
 
-        imageObj.src = CONST.enemyImageSources[randomSeed];
+        imageObj.src = CONST.enemyImageSources[Randomizer.getRandomCarSeed()];
 
         randomCar = new Kinetic.Image({
             x: Randomizer.getRandomCarX(),
@@ -48,13 +48,11 @@ var enemyCars = (function() {
     }
 
     enemyCarsAnimation = new Kinetic.Animation(function(frame){
-        // TODO Try to move the whole function to the module
         for (i = 0, len = carsList.length; i < len; i += 1) {
             var checkedCar = carsList[i];
 
             //TODO Check if cars get clustered with time because of smaller random range
             if (checkedCar.getY() > CONST.height) {
-                // TODO Move randomization of car position to module
                 var randomY = Randomizer.getRandomCarY(),
                     randomX = Randomizer.getRandomCarX();
                 console.log(randomX);

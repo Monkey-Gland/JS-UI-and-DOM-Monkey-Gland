@@ -24,7 +24,8 @@ var ENEMY_CONST = {
     maxHorizontal: 450,
     minHorizontal:150,
     maxVertical: 600,
-    minVertical: -4000
+    minVertical: -4000,
+    spawnRangeCoefficient: 6
 };
 
 var MYCAR_CONST = {
