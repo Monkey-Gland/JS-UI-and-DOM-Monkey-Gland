@@ -25,8 +25,8 @@ var enemyCars = (function() {
         imageObj.src = CONST.enemyImageSources[randomSeed];
 
         randomCar = new Kinetic.Image({
-            x: CONST.width / 2 + ((CONST.width / 4) / 3),
-            y: CONST.height / 1.4,
+            x: Randomizer.getRandomCarX(),
+            y: Randomizer.getRandomCarY(),
             image: imageObj,
             width: 80,
             height: 160,
