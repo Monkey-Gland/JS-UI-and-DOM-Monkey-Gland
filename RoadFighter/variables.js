@@ -5,7 +5,8 @@ var CONST = {
     midLineWidth: 10,
     sideLaneWidth: 10,
     sideLaneHeight: 20,
-    treeRadius:25,
+    treeRadius: 25,
+    shadowDistance: 7,
     enemyImageSources: [
         "images/blue_car.png",
         "images/green_car.png",
