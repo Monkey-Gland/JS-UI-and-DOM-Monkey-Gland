@@ -2,7 +2,8 @@ var enemyCars = (function() {
     var i,
         len,
         _enemyCarsList = [],
-        layer = new Kinetic.Layer();
+        layer = new Kinetic.Layer(),
+        enemyCarsAnimation;
 
     // TODO: move constants to another file
     var ENEMY_CONST = {
@@ -29,12 +30,38 @@ var enemyCars = (function() {
         layer.add(_enemyCarsList[i]);
     }
 
+    enemyCarsAnimation = new Kinetic.Animation(function(frame){
+        // TODO Try to move the whole function to the module
+        for (i = 0, len = carsList.length; i < len; i += 1) {
+            var checkedCar = carsList[i];
+
+            //TODO Check if cars get clustered with time because of smaller random range
+            if (checkedCar.getY() > CONST.height) {
+                // TODO Move randomization of car position to module
+                var randomY = (600 + (Math.random() * 3400)) * -1,
+                    randomX = 150 + (Math.random() * 300);
+
+                checkedCar.setX(randomX);
+                checkedCar.setY(randomY);
+            }
+        }
+
+        for (i = 0, len = carsList.length; i < len; i += 1) {
+            var currentCar = carsList[i],
+                currentY = currentCar.getY(),
+                newY = currentY + 2 + speed;
+
+            currentCar.setY(newY);
+        }
+    }, layer);
+
     returnLayer = function() {
         return layer;
     };
 
     return{
         getLayer: returnLayer,
-        cars: _enemyCarsList
+        cars: _enemyCarsList,
+        animation: enemyCarsAnimation
     }
 }());
