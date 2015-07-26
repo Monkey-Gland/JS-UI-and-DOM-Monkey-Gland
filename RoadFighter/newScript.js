@@ -198,7 +198,7 @@ imageObj.onload = function() {
 		y: CONST.height/1.4,
 		image: imageObj,
 		width: 80,
-		height: 140,
+		height: 160,
 		draggable: true
 	});
 
@@ -225,7 +225,7 @@ imageObj.onload = function() {
 		stage.draw();
 	});
 };
-imageObj.src = 'images/SimpleBlueCarTopView.png';
+imageObj.src = 'images/car.png';
 
 window.addEventListener('keydown', function(speedChange) {
 	if (speedChange.keyCode == 38){ //Up Arrow Key
