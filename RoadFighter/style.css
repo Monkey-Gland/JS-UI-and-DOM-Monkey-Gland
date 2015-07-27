@@ -1,32 +1,41 @@
-﻿#game_screen {
-    width: 950px;
-    height: 450px;
-    padding: 10px;
+﻿#loadingMenu {
+    width: 700px;
+    height: 800px;
+    padding: 0px;
     border: 1px solid black;
+    position:relative;
+    background-image:url("images/background_loading_menu.png");
+    
 }
 
 #timer {
-    width : 120px;
-    height : 25px;
-    font-family : Consolas;
+    width: 120px;
+    height: 25px;
+    font-family: Consolas;
 }
 
 #timerContainer {
-    float : right;
-    margin-right : 65%;
+    float: right;
+    margin-right: 65%;
 }
 
 #progressBar {
-    width : 550px;
-    border : 0px;
-    background-color : #f3f3f3;
-    height : 18px;
-    border-radius : 9px;
+    width: 550px;
+    border: 0px;
+    background-color: #f3f3f3;
+    height: 18px;
+    border-radius: 9px;
 }
 
 canvas {
     left: 33%;
     margin-left: 10px;
+    position: relative;
+
+}
+
+#canvas {
+    display:none;
 }
 
 header {
