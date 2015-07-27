@@ -54,7 +54,6 @@ var enemyCars = (function() {
 
             //TODO Check if cars get clustered with time because of smaller random range
             if (checkedCar.getY() > CONST.height) {
-                // TODO Move randomization of car position to module
                 var randomY = Randomizer.getRandomCarY(),
                     randomX = Randomizer.getRandomCarX();
                 console.log(randomX);
