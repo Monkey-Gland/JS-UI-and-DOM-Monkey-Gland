@@ -28,6 +28,7 @@ var ENEMY_CONST = {
     spawnRangeCoefficient: 6
 };
 
+
 var MYCAR_CONST = {
     width: 80,
     height: 160,
@@ -36,7 +37,9 @@ var MYCAR_CONST = {
     upArrowKey: 38,
     displacement: 8,
     speedUp: 2,
-    speedDown:5
+    speedDown: 0.00001,
+    speedMax: 20,
+    speedMin: 1
 };
 
 var speed = 2,

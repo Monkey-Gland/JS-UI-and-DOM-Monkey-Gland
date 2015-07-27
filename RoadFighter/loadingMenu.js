@@ -12,6 +12,7 @@
     running = true;
     increment();
 }
+
 function loadingMenuInfo() {
     var infoCreateBy = document.getElementById('info');
     if (infoCreateBy.style.display === 'none') {

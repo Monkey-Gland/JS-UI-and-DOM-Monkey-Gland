@@ -90,7 +90,6 @@
     <Content Include="loadingMenu.js" />
     <Content Include="newScript.js" />
     <Content Include="onScreen.js" />
-    <Content Include="script.js" />
     <Content Include="style.css" />
     <Content Include="variables.js" />
     <Content Include="Web.config" />
