@@ -33,11 +33,11 @@ h2 {
 }
 
 #startBotton {
-    width: 200px;
-    height: 50px;
+    width: 300px;
+    height: 75px;
     position: absolute;
     top: 200px;
-    left: 250px;
+    left: 200px;
     font-size: 70%;
     font-size: 30px;
     font-family: Futura, ‘Century Gothic’, AppleGothic, sans-serif;
@@ -51,7 +51,7 @@ h2 {
     width: 200px;
     height: 50px;
     position: relative;
-    top: 300px;
+    top: 500px;
     left: 250px;
     font-size: 70%;
     font-size: 30px;
@@ -60,6 +60,19 @@ h2 {
     text-align: center;
     background-color: #eaef70;
     color: green;
+}
+
+#info{ 
+    display:none;
+    background-color: #eaef70;
+    top:240px;
+    position: relative;
+    text-decoration:none;
+    font-family: Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+    font-size:25px;
+    text-align:center;
+    color: green;
+   
 }
 
 #canvas {
