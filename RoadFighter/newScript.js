@@ -47,6 +47,7 @@ for (var i = 0, cnt = CONST.height/(CONST.midLineHeight*2); i < cnt + 1; i+=1) {
 						})
 					);	
 }
+
 for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 	layerMovingObjects.add(midLaneBoxes[i]);
 };	
@@ -109,6 +110,7 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 2; i+=1) {
 		);
 	}				
 }
+
 for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
 	layerMovingObjects.add(sideLaneBoxes[i]);
 };	
@@ -140,6 +142,7 @@ for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
 	trees.push(treeLeft);
 	trees.push(treeRight);	
 }
+
 for (var i = 0, len = trees.length; i < len; i+=1) {
 	layerMovingObjects.add(trees[i]);
 };

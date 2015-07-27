@@ -21,6 +21,7 @@ imageObj.onload = function() {
 
 
 };
+
 imageObj.src = 'images/car.png';
 
 window.addEventListener('keydown', function(moveCar) {
