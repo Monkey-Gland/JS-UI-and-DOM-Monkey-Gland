@@ -81,9 +81,18 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="car.js" />
+    <Content Include="collision.js" />
+    <Content Include="enemyCars.js" />
     <Content Include="index.html" />
+    <Content Include="kinetic-v5.1.0.min.js" />
+    <Content Include="kinetic.js" />
+    <Content Include="loadingMenu.js" />
+    <Content Include="newScript.js" />
+    <Content Include="onScreen.js" />
     <Content Include="script.js" />
     <Content Include="style.css" />
+    <Content Include="variables.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

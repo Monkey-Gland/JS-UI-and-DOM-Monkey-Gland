@@ -1,13 +1,119 @@
-﻿#game_screen {
-    width: 950px;
-    height: 450px;
-    padding: 10px;
+﻿body {
+    margin: 0;
+    padding: 0;
+    width: 800px;
+}
+
+h1 {
+    margin: 0;
+    padding: 5px;
+    left: 200px;
+    display: block;
+    position: absolute;
+    z-index: 10;
+    color: #065503;
+}
+
+h2 {
+    left: 275px;
+    top: 25px;
+    display: block;
+    position: absolute;
+    z-index: 10;
+    color: #065503;
+}
+
+#loadingMenu {
+    width: 700px;
+    height: 750px;
+    padding: 0px;
     border: 1px solid black;
+    position: absolute;
+    background-image: url("images/background_loading_menu.png");
+}
+
+#startBotton {
+    width: 300px;
+    height: 75px;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    font-size: 70%;
+    font-size: 30px;
+    font-family: Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+    font-style: italic;
+    text-align: center;
+    background-color: #eaef70;
+    color: green;
+}
+
+#infoBotton {
+    width: 200px;
+    height: 50px;
+    position: relative;
+    top: 500px;
+    left: 250px;
+    font-size: 70%;
+    font-size: 30px;
+    font-family: Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+    font-style: italic;
+    text-align: center;
+    background-color: #eaef70;
+    color: green;
+}
+
+#info{ 
+    display:none;
+    background-color: #eaef70;
+    top:240px;
+    position: relative;
+    text-decoration:none;
+    font-family: Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+    font-size:25px;
+    text-align:center;
+    color: green;
+   
+}
+
+#canvas {
+    display: none;
+}
+
+#protgressContainer {
+    display: none;
+}
+
+#scoreContainer {
+    display: none;
+}
+
+#timerContainer {
+    display: none;
+}
+
+#timer {
+    width: 120px;
+    height: 25px;
+    font-family: Consolas;
+}
+
+#timerContainer {
+    float: right;
+    margin-right: 65%;
+}
+
+#progressBar {
+    width: 550px;
+    border: 0px;
+    background-color: #f3f3f3;
+    height: 18px;
+    border-radius: 9px;
 }
 
 canvas {
     left: 33%;
     margin-left: 10px;
+    position: absolute;
 }
 
 header {

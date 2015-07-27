@@ -5,41 +5,69 @@ var enemyCars = (function() {
         layer = new Kinetic.Layer(),
         enemyCarsAnimation,
         Randomizer = {
-          getRandomCarSeed: function(carVariationsAvailable) {
+          getRandomCarSeed: function() {
+              var carVariationsAvailable = CONST.enemyImageSources.length - 1;
+
               return Math.round(Math.random() * carVariationsAvailable);
           },
           getRandomCarX: function() {
-              return (150 + (Math.random() * 300));
+              return (CONST.width / 4 + (Math.random() * (CONST.width / 2 - CONST.imageWidth)));
           },
           getRandomCarY: function() {
-              return ((600 + (Math.random() * 3400)) * -1);
+              return ((CONST.height + (Math.random() * CONST.height * ENEMY_CONST.spawnRangeCoefficient)) * -1);
           }
         };
 
+    function validCarPosition(randomCar) {
+        var i,
+            len,
+            carPositionX = randomCar.getX(),
+            carPositionY = randomCar.getY();
+
+        //console.log(_enemyCarsList.length);
+        for (i = 0, len = _enemyCarsList.length; i < len; i += 1) {
+            var carBeingCheckedForOverlap = _enemyCarsList[i],
+                currentX = carBeingCheckedForOverlap.getX(),
+                currentY = carBeingCheckedForOverlap.getY();
+
+            //console.log("hello " + Math.abs(carPositionY - currentY));
+            //console.log(carPositionY + ' ' + currentY);
+            if (Math.abs(carPositionY - currentY) < CONST.imageHeight) {
+                if (Math.abs(carPositionX - currentX) < CONST.imageWidth) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     function getRandomColoredCar () {
         var randomCar,
-            imageObj = new Image(),
-            carVariationsAvailable = CONST.enemyImageSources.length - 1,
-            randomSeed = Randomizer.getRandomCarSeed(carVariationsAvailable);
+            imageObj = new Image();
 
-        imageObj.src = CONST.enemyImageSources[randomSeed];
+        imageObj.src = CONST.enemyImageSources[Randomizer.getRandomCarSeed()];
 
         randomCar = new Kinetic.Image({
-            x: CONST.width / 2 + ((CONST.width / 4) / 3),
-            y: CONST.height / 1.4,
+            x: Randomizer.getRandomCarX(),
+            y: Randomizer.getRandomCarY(),
             image: imageObj,
             width: 80,
             height: 160,
             draggable: true
         });
 
-        console.log(randomCar);
-
         return randomCar;
     }
 
     for (i = 0; i < ENEMY_CONST.count; i += 1) {
-        console.log(getRandomColoredCar());
+        var carToPush = getRandomColoredCar();
+
+        while(!validCarPosition(carToPush)) {
+            carToPush = getRandomColoredCar();
+        }
+        //console.log("position is " + validCarPosition(carToPush));
+
         _enemyCarsList.push(getRandomColoredCar());
     }
 
@@ -48,7 +76,6 @@ var enemyCars = (function() {
     }
 
     enemyCarsAnimation = new Kinetic.Animation(function(frame){
-        // TODO Try to move the whole function to the module
         for (i = 0, len = carsList.length; i < len; i += 1) {
             var checkedCar = carsList[i];
 
