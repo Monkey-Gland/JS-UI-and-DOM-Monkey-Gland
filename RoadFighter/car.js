@@ -46,7 +46,7 @@ var myFighterCar = (function() {
 				speed += MYCAR_CONST.speedUp;
 			}
 		}
-
+		detectCollision(myCar);
 		stage.draw();
 	});
 
