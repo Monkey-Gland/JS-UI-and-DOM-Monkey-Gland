@@ -18,6 +18,30 @@ var enemyCars = (function() {
           }
         };
 
+    function validCarPosition(randomCar) {
+        var i,
+            len,
+            carPositionX = randomCar.getX(),
+            carPositionY = randomCar.getY();
+
+        //console.log(_enemyCarsList.length);
+        for (i = 0, len = _enemyCarsList.length; i < len; i += 1) {
+            var carBeingCheckedForOverlap = _enemyCarsList[i],
+                currentX = carBeingCheckedForOverlap.getX(),
+                currentY = carBeingCheckedForOverlap.getY();
+
+            //console.log("hello " + Math.abs(carPositionY - currentY));
+            //console.log(carPositionY + ' ' + currentY);
+            if (Math.abs(carPositionY - currentY) < CONST.imageHeight) {
+                if (Math.abs(carPositionX - currentX) < CONST.imageWidth) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     function getRandomColoredCar () {
         var randomCar,
             imageObj = new Image();
@@ -33,13 +57,17 @@ var enemyCars = (function() {
             draggable: true
         });
 
-        console.log(randomCar);
-
         return randomCar;
     }
 
     for (i = 0; i < ENEMY_CONST.count; i += 1) {
-        console.log(getRandomColoredCar());
+        var carToPush = getRandomColoredCar();
+
+        while(!validCarPosition(carToPush)) {
+            carToPush = getRandomColoredCar();
+        }
+        //console.log("position is " + validCarPosition(carToPush));
+
         _enemyCarsList.push(getRandomColoredCar());
     }
 
