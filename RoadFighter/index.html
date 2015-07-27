@@ -3,18 +3,22 @@
 <head>
     <title>Road Fighter</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <script  src="kinetic-v5.1.0.min.js" type="text/javascript"></script>
+    <script src="kinetic-v5.1.0.min.js" type="text/javascript"></script>
     <script src="variables.js" type="text/javascript"></script>
     <script src="enemyCars.js" type="text/javascript"></script>
-	<script src="car.js" type="text/javascript"></script>
+    <script src="car.js" type="text/javascript"></script>
     <script src="onScreen.js" type="text/javascript"></script>
-	<script src="collision.js" type="text/javascript"></script>
+    <script src="loadingMenu.js"></script>
 </head>
 <body>
     <header>
         <h1>Monkey Gland Team</h1>
         <h2>Road Fighter</h2>
     </header>
+    <div id="loadingMenu">
+        <button id="startBotton" onclick="LoadingMenuStart()">START</button>
+        <button id="infoBotton" onclick="">INFO</button>
+    </div>
     <div id="canvas"></div>
     <div id="timerContainer">
         <div id="timer">00:00:00</div>
