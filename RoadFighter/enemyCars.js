@@ -1,6 +1,7 @@
 var enemyCars = (function() {
     var i,
         len,
+        returnLayer,
         _enemyCarsList = [],
         layer = new Kinetic.Layer(),
         enemyCarsAnimation,
@@ -12,45 +13,18 @@ var enemyCars = (function() {
           },
           getRandomCarX: function() {
               return (CONST.width / 4 + (Math.random() * (CONST.width / 2 - CONST.imageWidth)));
-          },
-          getRandomCarY: function() {
-              return ((CONST.height + (Math.random() * CONST.height * ENEMY_CONST.spawnRangeCoefficient)) * -1);
           }
         };
 
-    function validCarPosition(randomCar) {
-        var i,
-            len,
-            carPositionX = randomCar.getX(),
-            carPositionY = randomCar.getY();
-
-        //console.log(_enemyCarsList.length);
-        for (i = 0, len = _enemyCarsList.length; i < len; i += 1) {
-            var carBeingCheckedForOverlap = _enemyCarsList[i],
-                currentX = carBeingCheckedForOverlap.getX(),
-                currentY = carBeingCheckedForOverlap.getY();
-
-            //console.log("hello " + Math.abs(carPositionY - currentY));
-            //console.log(carPositionY + ' ' + currentY);
-            if (Math.abs(carPositionY - currentY) < CONST.imageHeight) {
-                if (Math.abs(carPositionX - currentX) < CONST.imageWidth) {
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
-    function getRandomColoredCar () {
+    function getRandomColoredCar (positionX, positionY) {
         var randomCar,
             imageObj = new Image();
 
         imageObj.src = CONST.enemyImageSources[Randomizer.getRandomCarSeed()];
 
         randomCar = new Kinetic.Image({
-            x: Randomizer.getRandomCarX(),
-            y: Randomizer.getRandomCarY(),
+            x: positionX,
+            y: positionY,
             image: imageObj,
             width: 80,
             height: 160,
@@ -60,40 +34,49 @@ var enemyCars = (function() {
         return randomCar;
     }
 
-    for (i = 0; i < ENEMY_CONST.count; i += 1) {
-        var carToPush = getRandomColoredCar();
+    function repositionCars(arrayOfCarImages) {
+        var i,
+            len,
+            newX,
+            newY;
 
-        while(!validCarPosition(carToPush)) {
-            carToPush = getRandomColoredCar();
+        for (i = 0, len = arrayOfCarImages.length; i < len; i += 1) {
+            var currentCar = arrayOfCarImages[i],
+                currentCarYDisplacementCoefficient = Math.random();
+            // TODO: incorporate the coefficient to randomize it a little and add distance between cars
+
+            newX = Randomizer.getRandomCarX();
+            newY = (MYCAR_CONST.height * i) - (ENEMY_CONST.count * MYCAR_CONST.height);
+            // TODO: randomize color too
+
+            currentCar.setX(newX);
+            currentCar.setY(newY);
         }
-        //console.log("position is " + validCarPosition(carToPush));
+    }
 
-        _enemyCarsList.push(getRandomColoredCar());
+    // filling array with cars positioned at (0,0) and adding them to layer
+    for (i = 0; i < ENEMY_CONST.count; i += 1) {
+        _enemyCarsList.push(getRandomColoredCar(0, 0));
     }
 
     for (i = 0, len = _enemyCarsList.length; i < len; i += 1) {
         layer.add(_enemyCarsList[i]);
     }
 
+    repositionCars(_enemyCarsList);
+
     enemyCarsAnimation = new Kinetic.Animation(function(frame){
-        for (i = 0, len = carsList.length; i < len; i += 1) {
-            var checkedCar = carsList[i];
+        var i,
+            len,
+            lastCar = _enemyCarsList[0],
+            lastCarPositionY = lastCar.getY();
 
-            //TODO Check if cars get clustered with time because of smaller random range
-            if (checkedCar.getY() > CONST.height) {
-                var randomY = Randomizer.getRandomCarY(),
-                    randomX = Randomizer.getRandomCarX();
-                console.log(randomX);
-                console.log(randomY);
-
-
-                checkedCar.setX(randomX);
-                checkedCar.setY(randomY);
-            }
+        if(lastCarPositionY > CONST.height) {
+            repositionCars(_enemyCarsList);
         }
 
         for (i = 0, len = carsList.length; i < len; i += 1) {
-            var currentCar = carsList[i],
+            var currentCar = _enemyCarsList[i],
                 currentY = currentCar.getY(),
                 newY = currentY + 2 + speed;
 

@@ -18,7 +18,7 @@ var CONST = {
 };
 
 var ENEMY_CONST = {
-    count: 15,
+    count: 5,
     width: 80,
     height: 160,
     maxHorizontal: 450,
