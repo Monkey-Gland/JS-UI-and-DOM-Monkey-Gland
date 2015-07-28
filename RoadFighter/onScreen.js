@@ -60,6 +60,9 @@ window.addEventListener('keydown', function(escapeGame) {
     if (escapeGame.keyCode == 27) {//Escape
         anim.stop();
         enemyCarsAnimation.stop();
+        document.getElementById('gameOver').style.display = 'block';
+        document.getElementById('timerContainter').style.dispay = 'none';
+        document.getElementById('progressBar').stytle.display = 'none';
     }
 });
 running = true;
