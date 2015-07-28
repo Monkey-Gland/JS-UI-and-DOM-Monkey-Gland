@@ -25,7 +25,8 @@ var ENEMY_CONST = {
     minHorizontal:150,
     maxVertical: 600,
     minVertical: -4000,
-    spawnRangeCoefficient: 6
+    spawnRangeCoefficient: 6,
+    enemySpeed: 2
 };
 
 

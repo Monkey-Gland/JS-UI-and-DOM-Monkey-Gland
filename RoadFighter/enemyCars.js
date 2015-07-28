@@ -26,8 +26,8 @@ var enemyCars = (function() {
             x: positionX,
             y: positionY,
             image: imageObj,
-            width: 80,
-            height: 160,
+            width: MYCAR_CONST.width,
+            height: MYCAR_CONST.height,
             draggable: true
         });
 
@@ -47,11 +47,9 @@ var enemyCars = (function() {
         for (i = 0, len = arrayOfCarImages.length; i < len; i += 1) {
             currentCar = arrayOfCarImages[i];
             currentCarYDisplacementCoefficient = Math.random();
-            // TODO: incorporate the coefficient to randomize it a little and add distance between cars
 
             newX = Randomizer.getRandomCarX();
             newY = lastCarY - (ENEMY_CONST.count * MYCAR_CONST.height + ( MYCAR_CONST.height * currentCarYDisplacementCoefficient));
-            // TODO: randomize color too
 
             lastCarY = newY;
             currentCar.x(newX);
@@ -85,7 +83,7 @@ var enemyCars = (function() {
 
             currentCar.move({
                 x: 0,
-                y: 2 + speed
+                y: ENEMY_CONST.enemySpeed + speed
             })
         }
     }, layer);
