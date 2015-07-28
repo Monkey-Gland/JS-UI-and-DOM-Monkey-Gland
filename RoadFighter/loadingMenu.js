@@ -11,6 +11,7 @@
     document.getElementById('timer').innerHTML = "00:00:00";
     running = true;
     increment();
+    initHourglass();
 }
 
 function loadingMenuInfo() {
