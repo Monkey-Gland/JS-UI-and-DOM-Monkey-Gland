@@ -4,7 +4,7 @@
     document.getElementById('canvas').style.display = 'block';
     document.getElementById('scoreContainer').style.display = 'block';
     document.getElementById('timerContainer').style.display = 'block';
-    document.getElementById('protgressContainer').style.display = 'block';
+    document.getElementById('progressContainer').style.display = 'block';
     running = false;
     time = 0;
     document.getElementById('startPause').innerHTML = "Start";
