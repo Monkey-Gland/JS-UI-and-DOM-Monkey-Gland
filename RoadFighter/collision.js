@@ -40,6 +40,7 @@ function detectCollision(myCar) {
 			collisionDetected = true;
 			console.log(collisionDetected);
 			alert('Game over');//need change
+			running= false;
 			anim.stop();
 			enemyCarsAnimation.stop();
 			return	collisionDetected;
