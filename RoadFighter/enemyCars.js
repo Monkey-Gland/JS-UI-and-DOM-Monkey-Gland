@@ -5,13 +5,13 @@ var enemyCars = (function() {
         _enemyCarsList = [],
         layer = new Kinetic.Layer(),
         enemyCarsAnimation,
-        Randomizer = {
-          getRandomCarSeed: function() {
+        randomise = {
+          carSeed: function() {
               var carVariationsAvailable = CONST.enemyImageSources.length - 1;
 
               return Math.round(Math.random() * carVariationsAvailable);
           },
-          getRandomCarX: function() {
+          carX: function() {
               return (CONST.width / 4 + (Math.random() * (CONST.width / 2 - CONST.imageWidth)));
           }
         };
@@ -20,15 +20,14 @@ var enemyCars = (function() {
         var randomCar,
             imageObj = new Image();
 
-        imageObj.src = CONST.enemyImageSources[Randomizer.getRandomCarSeed()];
+        imageObj.src = CONST.enemyImageSources[randomise.carSeed()];
 
         randomCar = new Kinetic.Image({
             x: positionX,
             y: positionY,
             image: imageObj,
             width: MYCAR_CONST.width,
-            height: MYCAR_CONST.height,
-            draggable: true
+            height: MYCAR_CONST.height
         });
 
         return randomCar;
@@ -48,7 +47,7 @@ var enemyCars = (function() {
             currentCar = arrayOfCarImages[i];
             currentCarYDisplacementCoefficient = Math.random();
 
-            newX = Randomizer.getRandomCarX();
+            newX = randomise.carX();
             newY = lastCarY - (ENEMY_CONST.count * MYCAR_CONST.height + ( MYCAR_CONST.height * currentCarYDisplacementCoefficient));
 
             lastCarY = newY;

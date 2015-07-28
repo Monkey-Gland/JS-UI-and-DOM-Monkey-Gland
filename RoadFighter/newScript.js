@@ -113,7 +113,7 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 2; i+=1) {
 
 for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
 	layerMovingObjects.add(sideLaneBoxes[i]);
-};	
+}
 
 //filling trees
 var imageTree = new Image();
@@ -125,8 +125,7 @@ for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
             y: i * 4 * CONST.treeRadius,
             image: imageTree,
             width: CONST.imageWidth,
-            height: CONST.imageHeight,
-            draggable: true
+            height: CONST.imageHeight
     });
 
     treeRight = new Kinetic.Image({
@@ -134,8 +133,7 @@ for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
             y: i * 4 * CONST.treeRadius,
             image: imageTree,
             width: CONST.imageWidth,
-            height: CONST.imageHeight,
-            draggable: true
+            height: CONST.imageHeight
     });
 
 
@@ -145,63 +143,77 @@ for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
 
 for (var i = 0, len = trees.length; i < len; i+=1) {
 	layerMovingObjects.add(trees[i]);
-};
+}
 
 
 var anim = new Kinetic.Animation(function(frame){
 	
-	var startY = midLaneBoxes[0].getY();
+	var startY = midLaneBoxes[0].y();
 	
 	if(startY >= 0){
 		for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
-			var boxY = midLaneBoxes[i].getY(),
-				currentBox = midLaneBoxes[i];
-			currentBox.setY(boxY - 2* CONST.midLineHeight);
+			var currentBox = midLaneBoxes[i];
+
+            currentBox.move({
+                x: 0,
+                y: - 2 * CONST.midLineHeight
+            })
 		}
 	}
 
 	for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
-		var rectMidLine = midLaneBoxes[i],
-			newY = rectMidLine.getY() + speed;
+		var rectMidLine = midLaneBoxes[i];
 
-		//console.log(startY);
-		rectMidLine.setY(newY);
+		rectMidLine.move({
+            x: 0,
+            y: speed
+        })
 	}
 
 	//move side lane logic
-	var sideLaneFirstY = sideLaneBoxes[0].getY();
+	var sideLaneFirstY = sideLaneBoxes[0].y();
 
 	if(sideLaneFirstY >= 0){
 		for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
-			var boxY = sideLaneBoxes[i].getY(),
-				currentBox = sideLaneBoxes[i];
-			currentBox.setY(boxY - 2 * CONST.sideLaneHeight);
+			var currentBox = sideLaneBoxes[i];
+
+            currentBox.move({
+                x: 0,
+                y: - 2 * CONST.sideLaneHeight
+            })
 		}
 	}
 
 	for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
-		var rectSideLane = sideLaneBoxes[i],
-			newY = rectSideLane.getY() + speed;
+		var rectSideLane = sideLaneBoxes[i];
 
-		rectSideLane.setY(newY);	
+		rectSideLane.move({
+            x: 0,
+            y: speed
+        });
 	}
 
 	//move trees logic
-	var treeFirstY = trees[0].getY();
+	var treeFirstY = trees[0].y();
 
 	if(treeFirstY >= 0){
 		for (var i = 0, len = trees.length; i < len; i+=1) {
-			var treeY = trees[i].getY(),
-				currentTree = trees[i];
-			currentTree.setY(treeY - 4 * CONST.treeRadius);
+			var currentTree = trees[i];
+
+            currentTree.move({
+                x: 0,
+                y:  - 4 * CONST.treeRadius
+            })
 		}
 	}
 
 	for (var i = 0, len = trees.length; i < len; i+=1) {
-		var tree = trees[i],
-			newY = tree.getY() + speed;
+		var tree = trees[i];
 
-		tree.setY(newY);	
+		tree.move({
+            x: 0,
+            y: speed
+        });
 	}
 
 },layerMovingObjects);
