@@ -4,36 +4,9 @@ var stage = new Kinetic.Stage({
     height:CONST.height
 });
 
-var layerMovingObjects = new Kinetic.Layer(),
+var staticLayer = staticBackground.getLayer(),
+    layerMovingObjects = new Kinetic.Layer(),
     enemyCarsLayer = enemyCars.getLayer();
-
-var rectSand = new Kinetic.Rect({
-    x:0,
-    y:0,
-    width:CONST.width,
-    height:CONST.height,
-    fill:"DarkKhaki"
-});
-
-var rectRoad = new Kinetic.Rect({
-	x: CONST.width/4,
-	y: 0,
-	width:CONST.width/2,
-	height:CONST.height,
-	fill: 'grey'
-});
-
-var rectGreen = new Kinetic.Rect({
-	x: CONST.width/8,
-	y: 0,
-	width: 3*CONST.width/4,
-	height: CONST.height,
-	fill: 'green'
-});
-
-layerMovingObjects.add(rectSand);
-layerMovingObjects.add(rectGreen);
-layerMovingObjects.add(rectRoad);
 
 //filling centre line boxes
 for (var i = 0, cnt = CONST.height/(CONST.midLineHeight*2); i < cnt + 1; i+=1) {
@@ -45,12 +18,12 @@ for (var i = 0, cnt = CONST.height/(CONST.midLineHeight*2); i < cnt + 1; i+=1) {
 						height: CONST.midLineHeight,
 						fill:'white'
 						})
-					);	
+					);
 }
 
 for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 	layerMovingObjects.add(midLaneBoxes[i]);
-};	
+};
 
 //filling side lane boxes
 for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 2; i+=1) {
@@ -108,7 +81,7 @@ for (var i = 0, cnt = CONST.height/CONST.sideLaneHeight; i < cnt + 2; i+=1) {
         				shadowOpacity: 0.5
 						})
 		);
-	}				
+	}
 }
 
 for (var i = 0, len = sideLaneBoxes.length; i < len; i+=1) {
@@ -138,7 +111,7 @@ for (var i = 0, cnt = CONST.height/(CONST.treeRadius*2); i < cnt + 1; i+=1) {
 
 
 	trees.push(treeLeft);
-	trees.push(treeRight);	
+	trees.push(treeRight);
 }
 
 for (var i = 0, len = trees.length; i < len; i+=1) {
@@ -147,9 +120,9 @@ for (var i = 0, len = trees.length; i < len; i+=1) {
 
 
 var anim = new Kinetic.Animation(function(frame){
-	
+
 	var startY = midLaneBoxes[0].y();
-	
+
 	if(startY >= 0){
 		for (var i = 0, len = midLaneBoxes.length; i < len; i+=1) {
 			var currentBox = midLaneBoxes[i];
@@ -221,6 +194,8 @@ var anim = new Kinetic.Animation(function(frame){
 var carsList = enemyCars.cars;
 var enemyCarsAnimation = enemyCars.animation;
 enemyCarsAnimation.start();
-stage.add(layerMovingObjects);
 anim.start();
+
+stage.add(staticLayer);
+stage.add(layerMovingObjects);
 stage.add (enemyCarsLayer);
