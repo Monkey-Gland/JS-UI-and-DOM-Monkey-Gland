@@ -62,7 +62,7 @@ window.addEventListener('keydown', function(escapeGame) {
         enemyCarsAnimation.stop();
         document.getElementById('gameOver').style.display = 'block';
         document.getElementById('timerContainer').style.dispay = 'none';
-        document.getElementById('timer').style.dispay = 'none';
+        document.getElementById('timer').style.display = 'none';
         document.getElementById('progressContainer').style.display = 'none';
     }
 });
