@@ -51,7 +51,8 @@ var myFighterCar = (function() {
 	});
 
 
-
+/*
+//disabled because go to min speed immediately
 	window.addEventListener('keyup', function(speedStop) {
 		if (speedStop.keyCode == MYCAR_CONST.upArrowKey){ //Up Arrow Key
 			while(speed > MYCAR_CONST.speedMin){
@@ -61,6 +62,6 @@ var myFighterCar = (function() {
 
 		}
 
-	});
+	});*/
 	return myCar;
 }());

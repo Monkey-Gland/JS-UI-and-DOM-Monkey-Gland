@@ -36,7 +36,13 @@ function detectCollision(myCar) {
 		if (Math.abs(playerCarX - enemyCarX) * 2 < (carWidth + carWidth) &&
 			Math.abs(playerCarY - enemyCarY) * 2 < (carHeight + carHeight)) {
 				//http://gamedev.stackexchange.com/questions/586/what-is-the-fastest-way-to-work-out-2d-bounding-box-intersection
-				collisionDetected = true;
+
+			collisionDetected = true;
+			console.log(collisionDetected);
+			alert('Game over');//need change
+			anim.stop();
+			enemyCarsAnimation.stop();
+			return	collisionDetected;
 				//alert('Collision!');
 		}
 	}
