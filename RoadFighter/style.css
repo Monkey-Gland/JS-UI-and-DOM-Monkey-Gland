@@ -2,19 +2,18 @@
     margin: 0;
     padding: 0;
     width: 800px;
-    background: url(images/3D-Palms-Beach-3.png) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
-
+    background: url(images/3D-Palms-Beach-3.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 h1 {
     margin: 0;
-    padding: 5px;
+    margin-left: 400px;
     left: 200px;
+    top:10px;
     display: block;
     position: absolute;
     z-index: 10;
@@ -22,6 +21,7 @@ h1 {
 }
 
 h2 {
+    margin-left: 400px;
     left: 275px;
     top: 25px;
     display: block;
@@ -31,12 +31,12 @@ h2 {
 }
 
 #loadingMenu {
+    margin-left: 400px;
+    margin-top: 100px;
     width: 700px;
     height: 750px;
     padding: 0px;
-    border: 1px solid black;
     position: absolute;
-    margin-left: 600px;
     background-image: url("images/background_loading_menu.png");
 }
 
@@ -70,23 +70,22 @@ h2 {
     color: green;
 }
 
-#info{ 
-    display:none;
+#info {
+    display: none;
     background-color: #eaef70;
-    top:240px;
+    top: 240px;
     position: relative;
-    text-decoration:none;
+    text-decoration: none;
     font-family: Futura, ‘Century Gothic’, AppleGothic, sans-serif;
-    font-size:25px;
-    text-align:center;
+    font-size: 25px;
+    text-align: center;
     color: green;
-   
 }
 
 #canvas {
     display: none;
     margin-left: 400px;
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 #protgressContainer {
@@ -121,8 +120,9 @@ h2 {
 }
 
 canvas {
+    margin-left: 400px;
+    margin-top: 100px;
     left: 33%;
-    margin-left: 10px;
     position: absolute;
 }
 
