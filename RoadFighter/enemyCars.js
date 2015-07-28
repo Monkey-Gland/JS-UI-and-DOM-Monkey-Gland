@@ -38,19 +38,24 @@ var enemyCars = (function() {
         var i,
             len,
             newX,
-            newY;
+            newY,
+            lastCarY,
+            currentCar,
+            currentCarYDisplacementCoefficient;
 
+        lastCarY = 0;
         for (i = 0, len = arrayOfCarImages.length; i < len; i += 1) {
-            var currentCar = arrayOfCarImages[i],
-                currentCarYDisplacementCoefficient = Math.random();
+            currentCar = arrayOfCarImages[i];
+            currentCarYDisplacementCoefficient = Math.random();
             // TODO: incorporate the coefficient to randomize it a little and add distance between cars
 
             newX = Randomizer.getRandomCarX();
-            newY = (MYCAR_CONST.height * i) - (ENEMY_CONST.count * MYCAR_CONST.height);
+            newY = lastCarY - (ENEMY_CONST.count * MYCAR_CONST.height + ( MYCAR_CONST.height * currentCarYDisplacementCoefficient));
             // TODO: randomize color too
 
-            currentCar.setX(newX);
-            currentCar.setY(newY);
+            lastCarY = newY;
+            currentCar.x(newX);
+            currentCar.y(newY);
         }
     }
 
@@ -68,19 +73,20 @@ var enemyCars = (function() {
     enemyCarsAnimation = new Kinetic.Animation(function(frame){
         var i,
             len,
-            lastCar = _enemyCarsList[0],
-            lastCarPositionY = lastCar.getY();
+            lastCar = _enemyCarsList[_enemyCarsList.length - 1],
+            lastCarPositionY = lastCar.y();
 
         if(lastCarPositionY > CONST.height) {
             repositionCars(_enemyCarsList);
         }
 
         for (i = 0, len = carsList.length; i < len; i += 1) {
-            var currentCar = _enemyCarsList[i],
-                currentY = currentCar.getY(),
-                newY = currentY + 2 + speed;
+            var currentCar = _enemyCarsList[i];
 
-            currentCar.setY(newY);
+            currentCar.move({
+                x: 0,
+                y: 2 + speed
+            })
         }
     }, layer);
 
