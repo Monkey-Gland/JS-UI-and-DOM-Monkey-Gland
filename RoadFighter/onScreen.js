@@ -1,27 +1,9 @@
 var time = 0,
-	score = 0,
-	minutes, seconds, miliseconds,
-	running = false,
-	score = 0;
-
-function startPause() {
-    if (!running) {
-        running = true;
-        increment();
-        document.getElementById('startPause').innerHTML = 'Pause';
-    } else {
-        running = false;
-        document.getElementById('startPause').innerHTML = 'Resume';
-    }
-}
-
-function reset() {
-    running = false;
-    time = 0;
-    document.getElementById('startPause').innerHTML = "Start";
-    document.getElementById('timer').innerHTML = "00:00:00";
-
-}
+    score = 0,
+    minutes, seconds, miliseconds,
+    running = false,
+    score = 0,
+    currentSpeed = speed;
 
 function increment() {
     if (running) {
@@ -46,33 +28,31 @@ function increment() {
                 progressBar(seconds);
             }
 
-            if (seconds % 5 == 0 && miliseconds == 0) {
-                scoreAdd();
-            }
-
             increment();
         }, 100);
     }
 }
 
-function scoreAdd() {
-    score += 10;
-    document.getElementById('score').innerHTML = score;
-}
+function progressBar(al) {
+    var bar = document.getElementById('progressBar');
+    var status = document.getElementById('status');
 
-function progressBar(time) {
-    var bar = document.getElementById('progressBar'),
-		status = document.getElementById('status');
+    status.innerHTML = al + "%";
+    bar.value = al;
 
-    status.innerHTML = time + "%";
-    bar.value = time;
+    al++;
+    var sim = setTimeout("progressBarSim(" + al + ")", 0);
 
-    var sim = setTimeout("progressBar(" + time + ")", 0);
-    if (time == 100) {
+    if (al == 100) {
         status.innerHTML = "100%";
         bar.value = 100;
         clearTimeout(sim);
-        document.getElementById("finalMessage").innerHTML = "Finish";
+        var finalMessage = document.getElementById('gameOver');
+        finalMessage.style.display = 'inline';
+        enemyCarsAnimation.stop();
+        anim.stop();
+        document.getElementById('timerContainter').style.dispay = 'none';
+        document.getElementById('progressBar').stytle.display = 'none';
     }
 }
 

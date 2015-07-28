@@ -2,7 +2,6 @@
     loadingScreen = document.getElementById('loadingMenu');
     loadingScreen.style.display = 'none';
     document.getElementById('canvas').style.display = 'block';
-    document.getElementById('scoreContainer').style.display = 'block';
     document.getElementById('timerContainer').style.display = 'block';
     document.getElementById('progressContainer').style.display = 'block';
     running = false;
@@ -11,7 +10,6 @@
     document.getElementById('timer').innerHTML = "00:00:00";
     running = true;
     increment();
-    initHourglass();
 }
 
 function loadingMenuInfo() {
