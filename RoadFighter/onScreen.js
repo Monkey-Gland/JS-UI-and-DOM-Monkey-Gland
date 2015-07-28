@@ -56,5 +56,11 @@ function progressBar(al) {
     }
 }
 
+window.addEventListener('keydown', function(escapeGame) {
+    if (escapeGame.keyCode == 27) {//Escape
+        anim.stop();
+        enemyCarsAnimation.stop();
+    }
+});
 running = true;
 increment();
