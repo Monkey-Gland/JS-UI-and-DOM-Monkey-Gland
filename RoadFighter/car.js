@@ -2,15 +2,16 @@ var myFighterCar = (function() {
 	var playerCar,
         animation,
         layer = new Kinetic.Layer(),
-        imageObj = new Image();
+        imageObj = new Image(),
+		carSettings = {
+			x: (7*GAME_CONST.width)/12,
+			y: GAME_CONST.height/1.4,
+			image: imageObj,
+			width: PLAYER_CONST.width,
+			height: PLAYER_CONST.height
+		};
 
-	playerCar= new Kinetic.Image({
-		x: (7*GAME_CONST.width)/12,
-		y: GAME_CONST.height/1.4,
-		image: imageObj,
-		width: PLAYER_CONST.width,
-		height: PLAYER_CONST.height
-	});
+	playerCar = new Kinetic.Image(carSettings);
 
 	imageObj.onload = function() {
 		layer.add(playerCar);
@@ -28,7 +29,9 @@ var myFighterCar = (function() {
             PLAYER_CONST.displacement = 0;
         }
 
-        detectCollision(playerCar);
+        if (detectCollision(playerCar)) {
+        	stopGame();
+        }
     }, layer);
 
 	window.addEventListener('keydown', function(keyEvent) {
@@ -79,6 +82,9 @@ var myFighterCar = (function() {
         }
     });
 
+	function resetCar() {
+		playerCar.setAttrs(carSettings);
+	}
 /*
 //disabled because go to min speed immediately
 	window.addEventListener('keyup', function(speedStop) {
@@ -93,6 +99,7 @@ var myFighterCar = (function() {
 	});*/
 	return {
 		layer: layer,
-        animation: animation
+        animation: animation,
+		resetCar: resetCar
 	};
 }());

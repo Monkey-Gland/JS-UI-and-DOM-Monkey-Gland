@@ -43,12 +43,10 @@ function detectCollision(myCar) {
         if (Math.abs(smallRectanglePlayerCarX - smallRectangleEnemyCarX) * 2 < smallRectangleCarWidthSquared &&
             Math.abs(smallRectanglePlayerCarY - smallRectangleEnemyCarY) * 2 < smallRectangleCarHeightSquared) {
             collisionDetected = true;
-            gameOver();
             break;
         } else if (Math.abs(bigRectanglePlayerCarX - bigRectangleEnemyCarX) * 2 < bigRectangleCarWidthSquared &&
             Math.abs(bigRectanglePlayerCarY - bigRectangleEnemyCarY) * 2 < bigRectangleCarHeightSquared) {
             collisionDetected = true;
-            gameOver();
             break;
         }
     }
@@ -66,16 +64,4 @@ function detectCollision(myCar) {
     //     }
     // }
     return collisionDetected;
-}
-
-function gameOver() {
-    document.getElementById('canvas').style.display = 'none';
-    document.getElementById('loadingMenu').style.display = 'block';
-    document.getElementById('gameOver').style.display = 'inline-block';
-    document.getElementById('startBotton').textContent = 'TRY AGAIN';
-    document.getElementById('infoBotton').style.display = 'none';
-
-    running = false;
-    // anim.stop();
-    enemyCarsAnimation.stop();
 }

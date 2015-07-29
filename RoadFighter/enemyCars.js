@@ -76,19 +76,20 @@ var enemyCars = (function() {
             repositionCars(_enemyCarsList);
         }
 
-        for (i = 0, len = carsList.length; i < len; i += 1) {
+        for (i = 0, len = _enemyCarsList.length; i < len; i += 1) {
             var currentCar = _enemyCarsList[i];
 
             currentCar.move({
                 x: 0,
                 y: ENEMY_CONST.enemySpeed + GAME_CONST.speed
-            })
+            });
         }
     }, layer);
 
     return{
         layer: layer,
         cars: _enemyCarsList,
-        animation: enemyCarsAnimation
-    }
+        animation: enemyCarsAnimation,
+        repositionCars: repositionCars
+    };
 }());
