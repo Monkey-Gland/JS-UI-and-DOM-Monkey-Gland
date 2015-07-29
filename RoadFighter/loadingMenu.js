@@ -4,7 +4,7 @@
     document.getElementById('canvas').style.display = 'block';
     document.getElementById('timerContainer').style.display = 'block';
     document.getElementById('progressContainer').style.display = 'block';
-    time = 0;
+    gameVariables.time = 0;
     document.getElementById('startPause').innerHTML = "Start";
     document.getElementById('timer').innerHTML = "00:00:00";
     gameVariables.gameInProgress = true;
