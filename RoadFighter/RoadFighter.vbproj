@@ -90,7 +90,6 @@
     <Content Include="loadingMenu.js" />
     <Content Include="newScript.js" />
     <Content Include="onScreen.js" />
-    <Content Include="sand_timer.js" />
     <Content Include="style.css" />
     <Content Include="Test_car.js" />
     <Content Include="Test_newScript.js" />
