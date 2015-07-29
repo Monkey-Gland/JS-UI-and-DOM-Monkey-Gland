@@ -36,7 +36,7 @@ var MYCAR_CONST = {
     leftArrowKey: 37,
     rightArrowKey: 39,
     upArrowKey: 38,
-    displacement: 8,
+    displacement: 0,
     speedUp: 2,
     speedDown: 0.00001,
     speedMax: 20,
