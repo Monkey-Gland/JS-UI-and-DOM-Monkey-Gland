@@ -47,10 +47,18 @@ var myFighterCar = (function() {
         }
 
         //Up Arrow Key
-        if (GAME_CONST.speed <  PLAYER_CONST.speedMax){
-            if (keyEvent.keyCode == PLAYER_CONST.upArrowKey){
+        if (keyEvent.keyCode == PLAYER_CONST.upArrowKey){
+            if (GAME_CONST.speed <  PLAYER_CONST.speedMax){
 
                 GAME_CONST.speed += PLAYER_CONST.speedUp;
+            }
+        }
+
+        //Down Arrow Key
+        if (keyEvent.keyCode == PLAYER_CONST.downArrowKey){
+            if (GAME_CONST.speed - PLAYER_CONST.speedDown >=  PLAYER_CONST.speedMin){
+
+                GAME_CONST.speed -= PLAYER_CONST.speedDown;
             }
         }
     });
