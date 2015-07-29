@@ -15,7 +15,8 @@ var GAME_CONST = {
         "images/purple_car.png",
         "images/yellow_car.png"
     ],
-    speed: 2
+    defaultSpeed: 2,
+    speed: this.defaultSpeed
 };
 
 var ENEMY_CONST = {

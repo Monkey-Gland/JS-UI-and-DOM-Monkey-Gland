@@ -84,6 +84,7 @@ var myFighterCar = (function() {
 
 	function resetCar() {
 		playerCar.setAttrs(carSettings);
+		GAME_CONST.speed = GAME_CONST.defaultSpeed;
 	}
 /*
 //disabled because go to min speed immediately
