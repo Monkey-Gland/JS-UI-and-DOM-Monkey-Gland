@@ -52,6 +52,6 @@ function gameOver() {
     document.getElementById('startBotton').textContent = 'TRY AGAIN';
     document.getElementById('infoBotton').style.display = 'none';
     running = false;
-    anim.stop();
+   // anim.stop();
     enemyCarsAnimation.stop();
 }

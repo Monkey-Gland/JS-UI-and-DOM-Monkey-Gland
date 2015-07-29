@@ -41,7 +41,7 @@ function progressBar(al) {
     bar.value = al;
 
     al++;
-    var sim = setTimeout("progressBarSim(" + al + ")", 0);
+    //var sim = setTimeout("progressBarSim(" + al + ")", 0);
 
     if (al == 100) {
         status.innerHTML = "100%";
