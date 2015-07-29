@@ -4,17 +4,18 @@ var stage = new Kinetic.Stage({
     height:CONST.height
 });
 
-var staticLayer = staticBackground.getLayer(),
+var staticBackgroundLayer = staticBackground.layer,
 	movingBackgroundLayer = movingBackground.layer,
-    enemyCarsLayer = enemyCars.getLayer();
+    enemyCarsLayer = enemyCars.layer;
+
+stage.add(staticBackgroundLayer);
+stage.add(movingBackgroundLayer);
+stage.add (enemyCarsLayer);
 
 var carsList = enemyCars.cars;
-var enemyCarsAnimation = enemyCars.animation;
-var movingBackgroundAnimation = movingBackground.animation;
+
+var enemyCarsAnimation = enemyCars.animation,
+    movingBackgroundAnimation = movingBackground.animation;
 
 enemyCarsAnimation.start();
 movingBackgroundAnimation.start();
-
-stage.add(staticLayer);
-stage.add(movingBackgroundLayer);
-stage.add (enemyCarsLayer);

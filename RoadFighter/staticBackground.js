@@ -32,11 +32,7 @@ var staticBackground = (function() {
     staticLayer.add(rectGreen);
     staticLayer.add(rectRoad);
 
-    function returnLayer() {
-        return staticLayer;
-    }
-
     return{
-        getLayer: returnLayer
+        layer: staticLayer
     }
 }());

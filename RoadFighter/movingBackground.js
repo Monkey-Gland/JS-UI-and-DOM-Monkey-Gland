@@ -2,13 +2,14 @@ var movingBackground = (function() {
     var i,
         len,
         animation,
+        leftSideRoadShape,
+        rightSideRoadShape,
+        sideRoadShape,
+        sideRoadImageObject,
         shapeToBeMoved,
         midLaneShapes = [],
         sideLaneShapes = [],
         sideRoadShapes = [],
-        sideRoadImageObject,
-        leftSideRoadShape,
-        rightSideRoadShape,
         layer = new Kinetic.Layer();
 
     //creating mid-lane shapes
@@ -170,14 +171,14 @@ var movingBackground = (function() {
            });
         }
 
-        //move trees logic
-        var treeFirstY = sideRoadShapes[0].y();
+        // moving side-road shapes
+        sideRoadShape = sideRoadShapes[0].y();
 
-        if(treeFirstY >= 0){
+        if(sideRoadShape >= 0){
         	for (i = 0, len = sideRoadShapes.length; i < len; i += 1) {
-        		var currentTree = sideRoadShapes[i];
+                shapeToBeMoved = sideRoadShapes[i];
 
-               currentTree.move({
+                shapeToBeMoved.move({
                    x: 0,
                    y:  - 4 * CONST.treeRadius
                })
@@ -185,9 +186,9 @@ var movingBackground = (function() {
         }
 
         for (i = 0, len = sideRoadShapes.length; i < len; i += 1) {
-        	var tree = sideRoadShapes[i];
+            shapeToBeMoved = sideRoadShapes[i];
 
-        	tree.move({
+            shapeToBeMoved.move({
                x: 0,
                y: speed
            });

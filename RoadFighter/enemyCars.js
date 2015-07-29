@@ -1,7 +1,6 @@
 var enemyCars = (function() {
     var i,
         len,
-        returnLayer,
         _enemyCarsList = [],
         layer = new Kinetic.Layer(),
         enemyCarsAnimation,
@@ -87,12 +86,8 @@ var enemyCars = (function() {
         }
     }, layer);
 
-    returnLayer = function() {
-        return layer;
-    };
-
     return{
-        getLayer: returnLayer,
+        layer: layer,
         cars: _enemyCarsList,
         animation: enemyCarsAnimation
     }
