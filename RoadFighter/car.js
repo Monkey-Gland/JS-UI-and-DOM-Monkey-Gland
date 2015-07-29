@@ -1,55 +1,67 @@
 var myFighterCar = (function() {
-	var carLeyer = new Kinetic.Layer();
+	var myCar,
+        animation,
+        carLayer = new Kinetic.Layer(),
+        imageObj = new Image();
 
-	var imageObj = new Image();
-
-	var myCar= new Kinetic.Image({
+	myCar= new Kinetic.Image({
 		x: (7*CONST.width)/12,
 		y: CONST.height/1.4,
 		image: imageObj,
 		width: MYCAR_CONST.width,
-		height: MYCAR_CONST.height,
-		draggable: true
+		height: MYCAR_CONST.height
 	});
 
 	imageObj.onload = function() {
-
-		// add the shape to the layer
-		carLeyer.add(myCar);
-
-		// add the layer to the stage
-		stage.add(carLeyer);
-
-
+		carLayer.add(myCar);
 	};
 
 	imageObj.src = 'images/car.png';
 
-	window.addEventListener('keydown', function(moveCar) {
-		if (moveCar.keyCode == MYCAR_CONST.leftArrowKey) {//Left Arrow Key
-			if(myCar.x() > CONST.width/4){
-				myCar.x(myCar.x() - MYCAR_CONST.displacement);
-			}
-		}
+    animation = new Kinetic.Animation(function() {
+        myCar.move({
+            x: MYCAR_CONST.displacement,
+            y:0
+        })
+    }, carLayer);
 
-		if (moveCar.keyCode == MYCAR_CONST.rightArrowKey) {//Right Arrow Key
-			if((myCar.x()+ myCar.width()) < ((3*CONST.width)/4)){
+	window.addEventListener('keydown', function(keyEvent) {
+        if (keyEvent.keyCode == MYCAR_CONST.leftArrowKey) {//Left Arrow Key
+            if(myCar.x() > CONST.width/4){
+                MYCAR_CONST.displacement = - 8;
+            }
+        }
 
-				myCar.x(myCar.x() + MYCAR_CONST.displacement);
-			}
 
-		}
+        if (keyEvent.keyCode == MYCAR_CONST.rightArrowKey) {//Right Arrow Key
+            if((myCar.x()+ myCar.width()) < ((3*CONST.width)/4)){
+                MYCAR_CONST.displacement = 8;
+            }
+        }
 
-		if (speed <  MYCAR_CONST.speedMax){
-			if (moveCar.keyCode == MYCAR_CONST.upArrowKey){ //Up Arrow Key
+        if (speed <  MYCAR_CONST.speedMax){
+            if (keyEvent.keyCode == MYCAR_CONST.upArrowKey){ //Up Arrow Key
 
-				speed += MYCAR_CONST.speedUp;
-			}
-		}
-		detectCollision(myCar);
-		stage.draw();
-	});
+                speed += MYCAR_CONST.speedUp;
+            }
+        }
+        detectCollision(myCar);
+    });
 
+    window.addEventListener('keyup', function(keyEvent) {
+        if (keyEvent.keyCode == MYCAR_CONST.leftArrowKey) {//Left Arrow Key
+            if(myCar.x() > CONST.width/4){
+                MYCAR_CONST.displacement = 0;
+            }
+        }
+
+
+        if (keyEvent.keyCode == MYCAR_CONST.rightArrowKey) {//Right Arrow Key
+            if((myCar.x()+ myCar.width()) < ((3*CONST.width)/4)){
+                MYCAR_CONST.displacement = 0;
+            }
+        }
+    });
 
 /*
 //disabled because go to min speed immediately
@@ -63,5 +75,8 @@ var myFighterCar = (function() {
 		}
 
 	});*/
-	return myCar;
+	return {
+		layer: carLayer,
+        animation: animation
+	};
 }());
