@@ -58,12 +58,17 @@ function progressBar(al) {
 
 window.addEventListener('keydown', function(escapeGame) {
     if (escapeGame.keyCode == 27) {//Escape
+        enemyCarsAnimation.stop();
+        movingBackgroundAnimation.stop();
+        carAnimation.stop();
+        document.getElementById('canvas').style.display = 'none';
+        document.getElementById('loadingMenu').style.display = 'block';
+        document.getElementById('gameOver').style.display = 'inline-block';
+        document.getElementById('startBotton').textContent = 'TRY AGAIN';
+        document.getElementById('infoBotton').style.display = 'none';
+        running = false;
         anim.stop();
         enemyCarsAnimation.stop();
-        document.getElementById('gameOver').style.display = 'block';
-        document.getElementById('timerContainer').style.dispay = 'none';
-        document.getElementById('timer').style.display = 'none';
-        document.getElementById('progressContainer').style.display = 'none';
     }
 });
 running = true;
