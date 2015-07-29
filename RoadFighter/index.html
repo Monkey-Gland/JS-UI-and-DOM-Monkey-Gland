@@ -12,6 +12,7 @@
     <script src="onScreen.js" type="text/javascript"></script>
     <script src="loadingMenu.js"></script>
 	<script src="car.js" type="text/javascript"></script>
+    <script src="timerVisualization.js" type="text/javascript"></script>
     <!--<script src='sand_timer.js'></script>-->
 </head>
 <body>
@@ -49,6 +50,12 @@
     <div id="gameOver">
         <svg xmlns="http://www.w3.org/2000/svg" width="700" height="400">
             <text x="0" y="50" fill="green" font-size="60px" transform="rotate(30 20,40)">GAME OVER</text>
+        </svg>
+    </div>
+    <div id="timer-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="700" height="400">
+            <circle cx="200" cy="200" r="100" fill="#0F0"></circle>
+            <path id="visualTimer-container" d=""></path>
         </svg>
     </div>
     <script src="newScript.js" type="text/javascript"></script>

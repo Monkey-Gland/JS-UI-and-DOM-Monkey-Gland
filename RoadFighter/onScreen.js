@@ -1,17 +1,14 @@
-var time = 0,
-    score = 0,
-    minutes, seconds, miliseconds,
-    running = false,
-    score = 0,
-    currentSpeed = GAME_CONST.speed;
-
 function increment() {
-    if (running) {
+    var minutes,
+        seconds,
+        milliseconds;
+
+    if (gameVariables.gameInProgress) {
         setTimeout(function() {
-            time += 1;
-            minutes = Math.floor(time / 10 / 60);
-            seconds = Math.floor(time / 10);
-            miliseconds = time % 10;
+            gameVariables.time += 1;
+            minutes = Math.floor(gameVariables.time / 10 / 60);
+            seconds = Math.floor(gameVariables.time / 10);
+            milliseconds = gameVariables.time % 10;
 
             if (minutes < 10) {
                 minutes = "0" + minutes;
@@ -21,7 +18,10 @@ function increment() {
                 seconds = "0" + seconds;
             }
 
-            document.getElementById('timer').innerHTML = minutes + ':' + seconds + ':' + "0" + miliseconds;
+
+            visualTimer.draw(gameVariables.time, 1000, timerContainer);
+
+            document.getElementById('timer').innerHTML = minutes + ':' + seconds + ':' + "0" + milliseconds;
             if (seconds < 10) {
                 progressBar(seconds | 0);
             } else {
@@ -63,8 +63,6 @@ window.addEventListener('keydown', function(escapeGame) {
         document.getElementById('gameOver').style.display = 'inline-block';
         document.getElementById('startBotton').textContent = 'TRY AGAIN';
         document.getElementById('infoBotton').style.display = 'none';
-        running = false;
+        gameVariables.gameInProgress = false;
     }
 });
-running = true;
-increment();

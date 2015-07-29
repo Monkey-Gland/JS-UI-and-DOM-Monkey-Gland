@@ -7,9 +7,9 @@
     time = 0;
     document.getElementById('startPause').innerHTML = "Start";
     document.getElementById('timer').innerHTML = "00:00:00";
-    running = true;
-    increment();
+    gameVariables.gameInProgress = true;
 
+    increment();
     startGame();
 }
 

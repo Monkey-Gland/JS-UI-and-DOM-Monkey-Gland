@@ -20,6 +20,10 @@ h1 {
     color: #065503;
 }
 
+#timer-container {
+    position: absolute;
+}
+
 h2 {
     margin-left: 400px;
     left: 275px;

@@ -2,11 +2,12 @@ var stage = new Kinetic.Stage({
     container: 'canvas',
     width: GAME_CONST.width,
     height:GAME_CONST.height
-}),
+    }),
     enemyCarsAnimation = enemyCars.animation,
     movingBackgroundAnimation = movingBackground.animation,
-    carAnimation = myFighterCar.animation;
-    
+    carAnimation = myFighterCar.animation,
+    timerContainer = document.getElementById("visualTimer-container");
+
 function startGame() {
     var staticBackgroundLayer = staticBackground.layer,
     	movingBackgroundLayer = movingBackground.layer,
@@ -33,7 +34,7 @@ function stopGame() {
     document.getElementById('startBotton').textContent = 'TRY AGAIN';
     document.getElementById('infoBotton').style.display = 'none';
 
-    running = false;
+    gameVariables.gameInProgress = false;
     enemyCarsAnimation.stop();
     movingBackgroundAnimation.stop();
     carAnimation.stop();

@@ -19,6 +19,11 @@ var GAME_CONST = {
     speed: this.defaultSpeed
 };
 
+var gameVariables = {
+    time: 0,
+    gameInProgress: false
+};
+
 var ENEMY_CONST = {
     count: 5,
     width: 80,
