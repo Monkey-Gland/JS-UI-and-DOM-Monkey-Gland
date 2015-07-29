@@ -16,9 +16,7 @@ var GAME_CONST = {
         "images/yellow_car.png"
     ],
     defaultSpeed: 2,
-    speed: this.defaultSpeed,
-    visualTimer: {
-    }
+    speed: this.defaultSpeed
 };
 
 var gameVariables = {

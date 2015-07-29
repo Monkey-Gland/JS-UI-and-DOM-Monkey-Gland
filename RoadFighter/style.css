@@ -24,6 +24,25 @@ h1 {
     position: absolute;
 }
 
+#timer-container text {
+    fill:#000;
+    font-size:40px;
+    font-weight: bold;
+    font-family: consolas, sans-serif;
+}
+
+#clock-face {
+    fill:#0F0;
+    stroke:#2a7a05;
+    stroke-width:5px;
+}
+
+#clock-elapsed {
+    fill: #F00;
+    stroke: #9b0d0d;
+    stroke-width: 5;
+}
+
 h2 {
     margin-left: 400px;
     left: 275px;

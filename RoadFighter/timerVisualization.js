@@ -28,7 +28,6 @@ var visualTimer = (function() {
         var endAngle = (currentTime / maximumTime) * 180;
 
         container.setAttribute("d", describeArc(200, 200, 100, 0, endAngle));
-        container.setAttribute("fill", "#F00");
     }
 
     return {

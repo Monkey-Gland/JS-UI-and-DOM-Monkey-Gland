@@ -6,7 +6,7 @@ var stage = new Kinetic.Stage({
     enemyCarsAnimation = enemyCars.animation,
     movingBackgroundAnimation = movingBackground.animation,
     carAnimation = myFighterCar.animation,
-    timerContainer = document.getElementById("visualTimer-container");
+    timerContainer = document.getElementById("clock-elapsed");
 
 function startGame() {
     var staticBackgroundLayer = staticBackground.layer,
