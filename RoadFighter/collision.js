@@ -26,8 +26,8 @@ function detectCollision(myCar) {
     var collisionDetected = false,
 		playerCarX = myCar.attrs.x,
 		playerCarY = myCar.attrs.y,
-		carWidth = MYCAR_CONST.width,
-		carHeight = MYCAR_CONST.height;
+		carWidth = PLAYER_CONST.width,
+		carHeight = PLAYER_CONST.height;
 
     for (var i = 0, len = enemyCars.cars.length; i < len; i++) {
         var enemyCarX = enemyCars.cars[i].attrs.x,

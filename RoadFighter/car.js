@@ -1,72 +1,72 @@
 var myFighterCar = (function() {
-	var myCar,
+	var playerCar,
         animation,
-        carLayer = new Kinetic.Layer(),
+        layer = new Kinetic.Layer(),
         imageObj = new Image();
 
-	myCar= new Kinetic.Image({
-		x: (7*CONST.width)/12,
-		y: CONST.height/1.4,
+	playerCar= new Kinetic.Image({
+		x: (7*GAME_CONST.width)/12,
+		y: GAME_CONST.height/1.4,
 		image: imageObj,
-		width: MYCAR_CONST.width,
-		height: MYCAR_CONST.height
+		width: PLAYER_CONST.width,
+		height: PLAYER_CONST.height
 	});
 
 	imageObj.onload = function() {
-		carLayer.add(myCar);
+		layer.add(playerCar);
 	};
 
 	imageObj.src = 'images/car.png';
 
     animation = new Kinetic.Animation(function() {
-        myCar.move({
-            x: MYCAR_CONST.displacement,
+        playerCar.move({
+            x: PLAYER_CONST.displacement,
             y:0
         });
 
-        detectCollision(myCar);
-    }, carLayer);
+        detectCollision(playerCar);
+    }, layer);
 
 	window.addEventListener('keydown', function(keyEvent) {
-        if (myCar.x() < CONST.width/4 || myCar.x()+ myCar.width() > (3*CONST.width) / 4) {
-            MYCAR_CONST.displacement = 0;
+        if (playerCar.x() < GAME_CONST.width/4 || playerCar.x()+ playerCar.width() > (3*GAME_CONST.width) / 4) {
+            PLAYER_CONST.displacement = 0;
         }
 
         //Left Arrow Key
-        if (keyEvent.keyCode == MYCAR_CONST.leftArrowKey) {
-            if(myCar.x() > CONST.width/4){
-                MYCAR_CONST.displacement = - 8;
+        if (keyEvent.keyCode == PLAYER_CONST.leftArrowKey) {
+            if(playerCar.x() > GAME_CONST.width/4){
+                PLAYER_CONST.displacement = - 8;
             }
         }
 
         //Right Arrow Key
-        if (keyEvent.keyCode == MYCAR_CONST.rightArrowKey) {
-            if((myCar.x()+ myCar.width()) < ((3*CONST.width)/4)){
-                MYCAR_CONST.displacement = 8;
+        if (keyEvent.keyCode == PLAYER_CONST.rightArrowKey) {
+            if((playerCar.x()+ playerCar.width()) < ((3*GAME_CONST.width)/4)){
+                PLAYER_CONST.displacement = 8;
             }
         }
 
         //Up Arrow Key
-        if (speed <  MYCAR_CONST.speedMax){
-            if (keyEvent.keyCode == MYCAR_CONST.upArrowKey){
+        if (GAME_CONST.speed <  PLAYER_CONST.speedMax){
+            if (keyEvent.keyCode == PLAYER_CONST.upArrowKey){
 
-                speed += MYCAR_CONST.speedUp;
+                GAME_CONST.speed += PLAYER_CONST.speedUp;
             }
         }
     });
 
     window.addEventListener('keyup', function(keyEvent) {
         //Left Arrow Key
-        if (keyEvent.keyCode == MYCAR_CONST.leftArrowKey) {
-            if(myCar.x() > CONST.width/4){
-                MYCAR_CONST.displacement = 0;
+        if (keyEvent.keyCode == PLAYER_CONST.leftArrowKey) {
+            if(playerCar.x() > GAME_CONST.width/4){
+                PLAYER_CONST.displacement = 0;
             }
         }
 
         //Right Arrow Key
-        if (keyEvent.keyCode == MYCAR_CONST.rightArrowKey) {
-            if((myCar.x()+ myCar.width()) < ((3*CONST.width)/4)){
-                MYCAR_CONST.displacement = 0;
+        if (keyEvent.keyCode == PLAYER_CONST.rightArrowKey) {
+            if((playerCar.x()+ playerCar.width()) < ((3*GAME_CONST.width)/4)){
+                PLAYER_CONST.displacement = 0;
             }
         }
     });
@@ -74,9 +74,9 @@ var myFighterCar = (function() {
 /*
 //disabled because go to min speed immediately
 	window.addEventListener('keyup', function(speedStop) {
-		if (speedStop.keyCode == MYCAR_CONST.upArrowKey){ //Up Arrow Key
-			while(speed > MYCAR_CONST.speedMin){
-				speed -= MYCAR_CONST.speedDown;
+		if (speedStop.keyCode == PLAYER_CONST.upArrowKey){ //Up Arrow Key
+			while(speed > PLAYER_CONST.speedMin){
+				speed -= PLAYER_CONST.speedDown;
 
 			}
 
@@ -84,7 +84,7 @@ var myFighterCar = (function() {
 
 	});*/
 	return {
-		layer: carLayer,
+		layer: layer,
         animation: animation
 	};
 }());

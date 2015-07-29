@@ -6,11 +6,11 @@ var myFighterCar = (function() {
     var carXdisplacement = 0;
 
 	var myCar= new Kinetic.Image({
-		x: (7*CONST.width)/12,
-		y: CONST.height/1.4,
+		x: (7*GAME_CONST.width)/12,
+		y: GAME_CONST.height/1.4,
 		image: imageObj,
-		width: MYCAR_CONST.width,
-		height: MYCAR_CONST.height,
+		width: PLAYER_CONST.width,
+		height: PLAYER_CONST.height,
 		draggable: true
 	});
 
@@ -23,12 +23,12 @@ var myFighterCar = (function() {
 	imageObj.src = 'images/car.png';
 
 	carLeyer.on('keydown', function(evt) {
-		if (evt.keyCode == MYCAR_CONST.leftArrowKey) {//Left Arrow Key
+		if (evt.keyCode == PLAYER_CONST.leftArrowKey) {//Left Arrow Key
 			carXdisplacement = -1;
             console.log("left");
 		}
 
-		if (evt.keyCode == MYCAR_CONST.rightArrowKey) {//Right Arrow Key
+		if (evt.keyCode == PLAYER_CONST.rightArrowKey) {//Right Arrow Key
 			carXdisplacement = 1;
             console.log("right");
 		}

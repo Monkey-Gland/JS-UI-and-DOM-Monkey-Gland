@@ -3,7 +3,7 @@ var time = 0,
     minutes, seconds, miliseconds,
     running = false,
     score = 0,
-    currentSpeed = speed;
+    currentSpeed = GAME_CONST.speed;
 
 function increment() {
     if (running) {

@@ -13,13 +13,13 @@ var movingBackground = (function() {
         layer = new Kinetic.Layer();
 
     //creating mid-lane shapes
-    for (i = 0, len = CONST.height / (CONST.midLineHeight * 2); i < len + 1; i += 1) {
+    for (i = 0, len = GAME_CONST.height / (GAME_CONST.midLineHeight * 2); i < len + 1; i += 1) {
         midLaneShapes.push(
             new Kinetic.Rect({
-                x: (CONST.width- CONST.midLineWidth) / 2,
-                y: i * 2 * CONST.midLineHeight - 2 * CONST.midLineHeight,
-                width: CONST.midLineWidth,
-                height: CONST.midLineHeight,
+                x: (GAME_CONST.width- GAME_CONST.midLineWidth) / 2,
+                y: i * 2 * GAME_CONST.midLineHeight - 2 * GAME_CONST.midLineHeight,
+                width: GAME_CONST.midLineWidth,
+                height: GAME_CONST.midLineHeight,
                 fill:'white'
             })
         );
@@ -30,58 +30,58 @@ var movingBackground = (function() {
     }
 
     //creating side-lane shapes
-    for (i = 0, len = CONST.height/CONST.sideLaneHeight; i < len + 2; i+=1) {
+    for (i = 0, len = GAME_CONST.height/GAME_CONST.sideLaneHeight; i < len + 2; i+=1) {
         if(i%2){
             sideLaneShapes.push(
                 new Kinetic.Rect({
-                    x: CONST.width/4 - CONST.sideLaneWidth,
-                    y: i* CONST.sideLaneHeight,
-                    width: CONST.sideLaneWidth,
-                    height: CONST.sideLaneHeight,
+                    x: GAME_CONST.width/4 - GAME_CONST.sideLaneWidth,
+                    y: i* GAME_CONST.sideLaneHeight,
+                    width: GAME_CONST.sideLaneWidth,
+                    height: GAME_CONST.sideLaneHeight,
                     fill:'black',
                     shadowColor: 'black',
                     shadowBlur: 10,
-                    shadowOffset: {x:CONST.shadowDistance,y:CONST.shadowDistance},
+                    shadowOffset: {x:GAME_CONST.shadowDistance,y:GAME_CONST.shadowDistance},
                     shadowOpacity: 0.5
                 })
             );
             sideLaneShapes.push(
                 new Kinetic.Rect({
-                    x: 3*CONST.width/4,
-                    y: i* CONST.sideLaneHeight,
-                    width: CONST.sideLaneWidth,
-                    height: CONST.sideLaneHeight,
+                    x: 3*GAME_CONST.width/4,
+                    y: i* GAME_CONST.sideLaneHeight,
+                    width: GAME_CONST.sideLaneWidth,
+                    height: GAME_CONST.sideLaneHeight,
                     fill:'black',
                     shadowColor: 'black',
                     shadowBlur: 10,
-                    shadowOffset: {x:CONST.shadowDistance,y:CONST.shadowDistance},
+                    shadowOffset: {x:GAME_CONST.shadowDistance,y:GAME_CONST.shadowDistance},
                     shadowOpacity: 0.5
                 })
             );
         } else {
             sideLaneShapes.push(
                 new Kinetic.Rect({
-                    x: CONST.width/4 - CONST.sideLaneWidth,
-                    y: i* CONST.sideLaneHeight,
-                    width: CONST.sideLaneWidth,
-                    height: CONST.sideLaneHeight,
+                    x: GAME_CONST.width/4 - GAME_CONST.sideLaneWidth,
+                    y: i* GAME_CONST.sideLaneHeight,
+                    width: GAME_CONST.sideLaneWidth,
+                    height: GAME_CONST.sideLaneHeight,
                     fill:'white',
                     shadowColor: 'black',
                     shadowBlur: 10,
-                    shadowOffset: {x:CONST.shadowDistance,y:CONST.shadowDistance},
+                    shadowOffset: {x:GAME_CONST.shadowDistance,y:GAME_CONST.shadowDistance},
                     shadowOpacity: 0.5
                 })
             );
             sideLaneShapes.push(
                 new Kinetic.Rect({
-                    x: 3*CONST.width/4,
-                    y: i* CONST.sideLaneHeight,
-                    width: CONST.sideLaneWidth,
-                    height: CONST.sideLaneHeight,
+                    x: 3*GAME_CONST.width/4,
+                    y: i* GAME_CONST.sideLaneHeight,
+                    width: GAME_CONST.sideLaneWidth,
+                    height: GAME_CONST.sideLaneHeight,
                     fill:'white',
                     shadowColor: 'black',
                     shadowBlur: 10,
-                    shadowOffset: {x:CONST.shadowDistance,y:CONST.shadowDistance},
+                    shadowOffset: {x:GAME_CONST.shadowDistance,y:GAME_CONST.shadowDistance},
                     shadowOpacity: 0.5
                 })
             );
@@ -96,21 +96,21 @@ var movingBackground = (function() {
     sideRoadImageObject = new Image();
     sideRoadImageObject.src = 'images/Palm_Tree.png';
 
-    for (i = 0, len = CONST.height/(CONST.treeRadius*2); i < len + 1; i+=1) {
+    for (i = 0, len = GAME_CONST.height/(GAME_CONST.treeRadius*2); i < len + 1; i+=1) {
         leftSideRoadShape = new Kinetic.Image({
             x: 5,
-            y: i * 4 * CONST.treeRadius,
+            y: i * 4 * GAME_CONST.treeRadius,
             image: sideRoadImageObject,
-            width: CONST.imageWidth,
-            height: CONST.imageHeight
+            width: GAME_CONST.imageWidth,
+            height: GAME_CONST.imageHeight
         });
 
         rightSideRoadShape = new Kinetic.Image({
-            x: CONST.width - CONST.imageWidth + 5,
-            y: i * 4 * CONST.treeRadius,
+            x: GAME_CONST.width - GAME_CONST.imageWidth + 5,
+            y: i * 4 * GAME_CONST.treeRadius,
             image: sideRoadImageObject,
-            width: CONST.imageWidth,
-            height: CONST.imageHeight
+            width: GAME_CONST.imageWidth,
+            height: GAME_CONST.imageHeight
         });
 
 
@@ -134,7 +134,7 @@ var movingBackground = (function() {
 
                 shapeToBeMoved.move({
                    x: 0,
-                   y: - 2 * CONST.midLineHeight
+                   y: - 2 * GAME_CONST.midLineHeight
                })
         	}
         }
@@ -144,7 +144,7 @@ var movingBackground = (function() {
 
             shapeToBeMoved.move({
                x: 0,
-               y: speed
+               y: GAME_CONST.speed
            })
         }
 
@@ -157,7 +157,7 @@ var movingBackground = (function() {
 
                 shapeToBeMoved.move({
                    x: 0,
-                   y: - 2 * CONST.sideLaneHeight
+                   y: - 2 * GAME_CONST.sideLaneHeight
                })
         	}
         }
@@ -167,7 +167,7 @@ var movingBackground = (function() {
 
             shapeToBeMoved.move({
                x: 0,
-               y: speed
+               y: GAME_CONST.speed
            });
         }
 
@@ -180,7 +180,7 @@ var movingBackground = (function() {
 
                 shapeToBeMoved.move({
                    x: 0,
-                   y:  - 4 * CONST.treeRadius
+                   y:  - 4 * GAME_CONST.treeRadius
                })
         	}
         }
@@ -190,7 +190,7 @@ var movingBackground = (function() {
 
             shapeToBeMoved.move({
                x: 0,
-               y: speed
+               y: GAME_CONST.speed
            });
         }
     }, layer);

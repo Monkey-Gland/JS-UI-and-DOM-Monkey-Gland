@@ -1,7 +1,7 @@
 var stage = new Kinetic.Stage({
     container: 'canvas',
-    width: CONST.width,
-    height:CONST.height
+    width: GAME_CONST.width,
+    height:GAME_CONST.height
 });
 
 var staticBackgroundLayer = staticBackground.layer,

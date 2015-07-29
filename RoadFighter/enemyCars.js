@@ -6,12 +6,12 @@ var enemyCars = (function() {
         enemyCarsAnimation,
         randomise = {
           carSeed: function() {
-              var carVariationsAvailable = CONST.enemyImageSources.length - 1;
+              var carVariationsAvailable = GAME_CONST.enemyImageSources.length - 1;
 
               return Math.round(Math.random() * carVariationsAvailable);
           },
           carX: function() {
-              return (CONST.width / 4 + (Math.random() * (CONST.width / 2 - CONST.imageWidth)));
+              return (GAME_CONST.width / 4 + (Math.random() * (GAME_CONST.width / 2 - GAME_CONST.imageWidth)));
           }
         };
 
@@ -19,14 +19,14 @@ var enemyCars = (function() {
         var randomCar,
             imageObj = new Image();
 
-        imageObj.src = CONST.enemyImageSources[randomise.carSeed()];
+        imageObj.src = GAME_CONST.enemyImageSources[randomise.carSeed()];
 
         randomCar = new Kinetic.Image({
             x: positionX,
             y: positionY,
             image: imageObj,
-            width: MYCAR_CONST.width,
-            height: MYCAR_CONST.height
+            width: PLAYER_CONST.width,
+            height: PLAYER_CONST.height
         });
 
         return randomCar;
@@ -47,7 +47,7 @@ var enemyCars = (function() {
             currentCarYDisplacementCoefficient = Math.random();
 
             newX = randomise.carX();
-            newY = lastCarY - (ENEMY_CONST.count * MYCAR_CONST.height + ( MYCAR_CONST.height * currentCarYDisplacementCoefficient));
+            newY = lastCarY - (ENEMY_CONST.count * PLAYER_CONST.height + ( PLAYER_CONST.height * currentCarYDisplacementCoefficient));
 
             lastCarY = newY;
             currentCar.x(newX);
@@ -72,7 +72,7 @@ var enemyCars = (function() {
             lastCar = _enemyCarsList[_enemyCarsList.length - 1],
             lastCarPositionY = lastCar.y();
 
-        if(lastCarPositionY > CONST.height) {
+        if(lastCarPositionY > GAME_CONST.height) {
             repositionCars(_enemyCarsList);
         }
 
@@ -81,7 +81,7 @@ var enemyCars = (function() {
 
             currentCar.move({
                 x: 0,
-                y: ENEMY_CONST.enemySpeed + speed
+                y: ENEMY_CONST.enemySpeed + GAME_CONST.speed
             })
         }
     }, layer);

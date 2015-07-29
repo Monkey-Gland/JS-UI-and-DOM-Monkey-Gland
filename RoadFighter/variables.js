@@ -1,4 +1,4 @@
-var CONST = {
+var GAME_CONST = {
     width: 700,
     height: 800,
     midLineHeight: 50,
@@ -14,7 +14,8 @@ var CONST = {
         "images/green_car.png",
         "images/purple_car.png",
         "images/yellow_car.png"
-    ]
+    ],
+    speed: 2
 };
 
 var ENEMY_CONST = {
@@ -30,7 +31,7 @@ var ENEMY_CONST = {
 };
 
 
-var MYCAR_CONST = {
+var PLAYER_CONST = {
     width: 80,
     height: 160,
     leftArrowKey: 37,
@@ -42,8 +43,3 @@ var MYCAR_CONST = {
     speedMax: 20,
     speedMin: 1
 };
-
-var speed = 2,
-    midLaneBoxes = [],
-    sideLaneBoxes = [],
-    trees = [];
