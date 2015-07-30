@@ -20,7 +20,7 @@
 	
 	•	URL OF GIT REPOSITORY
 	
-	https://github.com/DamsonTeam/OOPProject/
+	https://github.com/Monkey-Gland/JS-UI-and-DOM-Monkey-Gland
 	
 	o	Requirements fulfilled
 		
