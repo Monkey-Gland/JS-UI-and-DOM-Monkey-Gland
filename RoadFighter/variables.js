@@ -45,7 +45,7 @@ var PLAYER_CONST = {
     upArrowKey: 38,
     downArrowKey: 40,
     displacement: 0,
-    speedUp: 2,
+    speedUp: 0.1,
     speedDown: 1,
     speedMax: 20,
     speedMin: 1

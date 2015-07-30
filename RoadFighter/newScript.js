@@ -6,13 +6,15 @@ var stage = new Kinetic.Stage({
     enemyCarsAnimation = enemyCars.animation,
     movingBackgroundAnimation = movingBackground.animation,
     carAnimation = myFighterCar.animation,
+    speedAnimation = speedometer.animation,
     timerContainer = document.getElementById("clock-elapsed");
 
 function startGame() {
     var staticBackgroundLayer = staticBackground.layer,
     	movingBackgroundLayer = movingBackground.layer,
         enemyCarsLayer = enemyCars.layer,
-        carLayer = myFighterCar.layer;
+        carLayer = myFighterCar.layer,
+    viewSpeedometer = speedometer.layer;
 
     enemyCars.repositionCars(enemyCars.cars);
     myFighterCar.resetCar();
@@ -21,10 +23,12 @@ function startGame() {
     stage.add(movingBackgroundLayer);
     stage.add(enemyCarsLayer);
     stage.add(carLayer);
+    stage.add(viewSpeedometer);
 
     enemyCarsAnimation.start();
     movingBackgroundAnimation.start();
     carAnimation.start();
+    speedAnimation.start();
 }
 
 function stopGame() {
@@ -38,4 +42,5 @@ function stopGame() {
     enemyCarsAnimation.stop();
     movingBackgroundAnimation.stop();
     carAnimation.stop();
+    speedAnimation.stop();
 }
