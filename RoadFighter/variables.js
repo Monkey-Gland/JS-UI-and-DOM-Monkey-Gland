@@ -18,8 +18,8 @@ var GAME_CONST = {
     defaultSpeed: 2,
     speed: this.defaultSpeed,
     distanceCoefficient: 0.01,
-    distanceToFinish: 850,
-    timeLimit: 50
+    distanceToFinish: 450,
+    timeLimit: 30
 };
 
 var gameVariables = {

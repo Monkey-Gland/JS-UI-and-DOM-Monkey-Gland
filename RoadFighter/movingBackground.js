@@ -3,25 +3,37 @@ var movingBackground = (function() {
         len,
         animation,
         finishLine,
+        finishLineText,
         leftSideRoadShape,
         rightSideRoadShape,
         sideRoadShape,
         sideRoadImageObject,
         shapeToBeMoved,
+        pixelsMoved = 0,
         midLaneShapes = [],
         sideLaneShapes = [],
         sideRoadShapes = [],
         layer = new Kinetic.Layer();
 
     finishLine = new Kinetic.Rect({
-        x:10,
-        y:-500,
-        width: 500,
+        x: GAME_CONST.width / 4,
+        y:((GAME_CONST.distanceToFinish * PLAYER_CONST.speedMax) - GAME_CONST.height * 6.2) * -1,
+        width: GAME_CONST.width / 2,
         height: 50,
-        fill:'black'
+        fill:'#008000'
+    });
+
+    finishLineText = new Kinetic.Text({
+        x: GAME_CONST.width / 4 + (GAME_CONST.width / 8) + 15,
+        y: ((GAME_CONST.distanceToFinish * PLAYER_CONST.speedMax) - GAME_CONST.height * 6.2) * -1,
+        //y: 400,
+        fontSize:  50,
+        text: "Finish",
+        fill: "#BDB76B"
     });
 
     layer.add(finishLine);
+    layer.add(finishLineText);
 
     //creating mid-lane shapes
     for (i = 0, len = GAME_CONST.height / (GAME_CONST.midLineHeight * 2); i < len + 1; i += 1) {
@@ -138,6 +150,9 @@ var movingBackground = (function() {
             len,
             startY = midLaneShapes[0].y();
 
+        pixelsMoved += GAME_CONST.speed;
+        //console.log(pixelsMoved);
+
         // moving mid-lane shapes
         if(startY >= 0){
         	for (i = 0, len = midLaneShapes.length; i < len; i += 1) {
@@ -152,6 +167,11 @@ var movingBackground = (function() {
 
         finishLine.move({
             x: 0,
+            y: GAME_CONST.speed
+        });
+
+        finishLineText.move({
+            x:0,
             y: GAME_CONST.speed
         });
 
@@ -211,8 +231,21 @@ var movingBackground = (function() {
         }
     }, layer);
 
+    function resetFinishLine() {
+        finishLine.move({
+            x:0,
+            y:((GAME_CONST.distanceToFinish * PLAYER_CONST.speedMax) - GAME_CONST.height ) * -1
+        });
+
+        finishLineText.move({
+            x:0,
+            y:((GAME_CONST.distanceToFinish * PLAYER_CONST.speedMax) - GAME_CONST.height ) * -1
+        })
+    }
+
     return{
         layer:layer,
-        animation: animation
+        animation: animation,
+        resetFinishLine: resetFinishLine
     }
 }());

@@ -55,6 +55,7 @@ function winGame() {
     document.getElementById('finalMessage').style.display = 'block';
     document.getElementById('startBotton').textContent = 'WIN AGAIN';
 
+    movingBackground.resetFinishLine();
     gameVariables.gameInProgress = false;
     enemyCarsAnimation.stop();
     movingBackgroundAnimation.stop();
