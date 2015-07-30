@@ -13,6 +13,7 @@
 
 	•	PROJECT PURPOSE
 	The game is a car racer. The purpose is to finish before time has run out. You are given one minute to finish the track without crashing into an enemy car. If you hit enemy car the game ends.
+	To move use the arrow keys - UP - to accelerate, DOWN - to reduce speed, LEFT/RIGHT arrow key - to move left/right.
 	Time is tracked by a clock and progress is measured by a progress bar. 
 	Upon the start of the game a menu is loaded with two options : ‘START’ or view the team list by pressing ‘CREATED BY’. 
 	The game ends if the player hits enemy car, time runs out or the player presses the escape button. After any of these events, ‘TRY AGAIN’ button enables starting a new game and resets the current status.
