@@ -18,12 +18,12 @@ var GAME_CONST = {
     defaultSpeed: 2,
     speed: this.defaultSpeed,
     distanceCoefficient: 0.01,
-    distanceToFinish: 100,
+    distanceToFinish: 850,
     timeLimit: 50
 };
 
 var gameVariables = {
-    time: 0,
+    timeInSeconds: 0,
     gameInProgress: false,
     totalSpeed: 0,
     averageSpeed: 0,
@@ -52,7 +52,7 @@ var PLAYER_CONST = {
     downArrowKey: 40,
     displacement: 0,
     speedUp: 0.1,
-    speedDown: 1,
+    speedDown: 0.4,
     speedMax: 20,
     speedMin: 1
 };

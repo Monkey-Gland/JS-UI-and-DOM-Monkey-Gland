@@ -64,6 +64,12 @@ var myFighterCar = (function() {
                 GAME_CONST.speed -= PLAYER_CONST.speedDown;
             }
         }
+
+        //Escape
+        if (keyEvent.keyCode == 27) {
+            stopGame();
+            gameVariables.gameInProgress = false;
+        }
     });
 
     window.addEventListener('keyup', function(keyEvent) {
