@@ -25,7 +25,7 @@ var visualTimer = (function() {
     }
 
     function drawTimer(currentTime, maximumTime, container) {
-        var endAngle = (currentTime / maximumTime) * 180;
+        var endAngle = (currentTime / maximumTime) * 360;
 
         container.setAttribute("d", describeArc(200, 200, 100, 0, endAngle));
     }

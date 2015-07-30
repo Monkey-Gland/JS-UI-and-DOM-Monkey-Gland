@@ -46,7 +46,7 @@ var speedometer = (function() {
         var curentPosition = positionRadians(62, 62, 53, angle[i])
 
         theLayer.add(createText(curentPosition.x, curentPosition.y, digits[i]));
-        console.log(curentPosition.x, curentPosition.y)
+        //console.log(curentPosition.x, curentPosition.y)
 
     };
 
@@ -56,8 +56,8 @@ var speedometer = (function() {
         var points = [];
         points.push(70, 70, lineCurentPosition.x, lineCurentPosition.y);
         line.setPoints(points);
-        console.log(GAME_CONST.speed);
-        console.log(lineCurentPosition.x, lineCurentPosition.y);
+        //console.log(GAME_CONST.speed);
+        //console.log(lineCurentPosition.x, lineCurentPosition.y);
 
     }, theLayer);
 

@@ -16,12 +16,18 @@ var GAME_CONST = {
         "images/yellow_car.png"
     ],
     defaultSpeed: 2,
-    speed: this.defaultSpeed
+    speed: this.defaultSpeed,
+    distanceCoefficient: 0.01,
+    distanceToFinish: 100,
+    timeLimit: 50
 };
 
 var gameVariables = {
     time: 0,
-    gameInProgress: false
+    gameInProgress: false,
+    totalSpeed: 0,
+    averageSpeed: 0,
+    distanceTraveled: 0
 };
 
 var ENEMY_CONST = {

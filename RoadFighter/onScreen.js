@@ -1,5 +1,7 @@
 function increment() {
-    var minutes,
+    var distanceTraveled,
+        averageSpeed,
+        minutes,
         seconds,
         milliseconds;
 
@@ -11,6 +13,11 @@ function increment() {
             seconds = Math.floor(gameVariables.time / 10);
             milliseconds = gameVariables.time % 10;
 
+            gameVariables.totalSpeed += GAME_CONST.speed;
+            gameVariables.averageSpeed = gameVariables.totalSpeed / gameVariables.time;
+            gameVariables.distanceTraveled = (gameVariables.averageSpeed * gameVariables.time) * GAME_CONST.distanceCoefficient;
+            //console.log(gameVariables.distanceTraveled);
+
             if (minutes < 10) {
                 minutes = "0" + minutes;
             }
@@ -19,17 +26,17 @@ function increment() {
                 seconds = "0" + seconds;
             }
 
-
-            visualTimer.draw(gameVariables.time, 1000, timerContainer);
+            visualTimer.draw(gameVariables.time / 10, GAME_CONST.timeLimit, timerContainer);
 
             document.getElementById('timer').innerHTML = minutes + ':' + seconds + ':' + "0" + milliseconds;
             if (seconds < 10) {
-                progressBar(seconds | 0);
+                progressBar(gameVariables.distanceTraveled | 0);
             } else {
-                progressBar(seconds);
+                progressBar(gameVariables.distanceTraveled);
             }
+            //console.log(seconds + " " + GAME_CONST.timeLimit);
 
-            if (seconds > 99) {
+            if (seconds >= GAME_CONST.timeLimit) {
                 stopGame();
             }
 
@@ -38,20 +45,21 @@ function increment() {
     }
 }
 
-function progressBar(al) {
+function progressBar(distanceTraveled) {
     var bar = document.getElementById('progressBar');
     var status = document.getElementById('status');
 
-    status.innerHTML = al + "%";
-    bar.value = al;
+    //status.innerHTML = ((distanceTraveled / GAME_CONST.distanceToFinish) * 100) + "%";
+    bar.value = distanceTraveled;
 
-    al += 5;
+    //al += 5;
     //var sim = setTimeout("progressBarSim(" + al + ")", 0);
 
-    if (al == 100) {
-        status.innerHTML = "100%";
-        bar.value = 100;
-        clearTimeout(sim);
+    console.log(distanceTraveled + " " + GAME_CONST.distanceToFinish);
+    if (distanceTraveled >= GAME_CONST.distanceToFinish) {
+        //status.innerHTML = "100%";
+        bar.value = GAME_CONST.timeLimit;
+        //clearTimeout(sim);
         stopGame();
     }
 }
