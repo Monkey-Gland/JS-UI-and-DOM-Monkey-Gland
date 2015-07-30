@@ -28,6 +28,7 @@ h2 {
     color: #065503;
 }
 
+
 #timer-container {
     width: 300px;
     height: 300px;
@@ -63,7 +64,7 @@ h2 {
     margin-bottom: 10px;
     width: 700px;
     height: 800px;
-    padding: 0px;
+    padding: 0;
     position: relative;
     background-image: url("images/background_loading_menu.png");
 }
@@ -101,7 +102,6 @@ h2 {
 }
 
 #info {
-    display: none;
     background-color: #eaef70;
     top: 210px;
     position: relative;
@@ -114,35 +114,32 @@ h2 {
 
 #gameOver {
     position: absolute;
-    margin-top:-500px;
-    margin-left:600px;
-        z-index:10;
-    display: none;
+    margin-top: -500px;
+    margin-left: 600px;
+    z-index: 10;
 }
 
 #canvas {
     position: relative;
-    display: none;
     margin-bottom: 10px;
     margin-left: 400px;
     margin-top: 100px;
 }
 
 #progressContainer {
-    display: none;
     position: absolute;
     margin-left: -700px;
     margin-top: 910px;
 }
 
 #scoreContainer {
-    display: none;
     margin-left: 450px;
 }
 
 #timerContainer {
-    display: none;
     margin-left: 400px;
+    margin-bottom: 10px;
+    float: right;
 }
 
 #timer {
@@ -151,20 +148,15 @@ h2 {
     font-family: Consolas;
 }
 
-#timerContainer {
-    margin-bottom: 10px;
-    float: right;
-}
-
 #progressBar {
     width: 700px;
-    border: 0px;
+    border: 0;
     background-color: #f3f3f3;
-    height: 18px;
+    height: 25px;
     border-radius: 9px;
 }
 
-#startPause, #reset, #scoreContainer {
+#startPause, #reset, #scoreContainer, #timer-container,#progressContainer,#timerContainer,#canvas,#gameOver,#info {
     display: none;
 }
 
@@ -185,8 +177,8 @@ header {
 }
 
 ul {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 li {
