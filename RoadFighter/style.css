@@ -1,7 +1,6 @@
 ﻿body {
     margin: 0;
     padding: 0;
-    width: 800px;
     background: url(images/3D-Palms-Beach-3.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -20,21 +19,35 @@ h1 {
     color: #065503;
 }
 
-#timer-container {
+h2 {
+    left: 675px;
+    top: 25px;
+    display: block;
     position: absolute;
+    z-index: 10;
+    color: #065503;
 }
 
-#timer-container text {
-    fill:#000;
-    font-size:40px;
-    font-weight: bold;
-    font-family: consolas, sans-serif;
+#timer-container {
+    width: 300px;
+    height: 300px;
+    top: 0;
+    margin-right: -300px;
+    float: left;
+    position: relative;
 }
+
+    #timer-container text {
+        fill: #000;
+        font-size: 40px;
+        font-weight: bold;
+        font-family: consolas, sans-serif;
+    }
 
 #clock-face {
-    fill:#0F0;
-    stroke:#2a7a05;
-    stroke-width:5px;
+    fill: #0F0;
+    stroke: #2a7a05;
+    stroke-width: 5px;
 }
 
 #clock-elapsed {
@@ -43,30 +56,23 @@ h1 {
     stroke-width: 5;
 }
 
-h2 {
-    margin-left: 400px;
-    left: 275px;
-    top: 25px;
-    display: block;
-    position: absolute;
-    z-index: 10;
-    color: #065503;
-}
-
 #loadingMenu {
+    display: inline-block;
     margin-left: 400px;
     margin-top: 100px;
+    margin-bottom: 10px;
     width: 700px;
     height: 800px;
     padding: 0px;
-    position: absolute;
+    position: relative;
     background-image: url("images/background_loading_menu.png");
 }
 
 #startBotton {
+    border-radius: 10px;
     width: 300px;
     height: 75px;
-    position: absolute;
+    position: relative;
     top: 200px;
     left: 200px;
     font-size: 70%;
@@ -79,11 +85,12 @@ h2 {
 }
 
 #infoBotton {
+    border-radius: 10px;
     width: 200px;
     height: 50px;
     position: relative;
     top: 500px;
-    left: 250px;
+    left: -50px;
     font-size: 70%;
     font-size: 30px;
     font-family: Futura, ‘Century Gothic’, AppleGothic, sans-serif;
@@ -96,7 +103,7 @@ h2 {
 #info {
     display: none;
     background-color: #eaef70;
-    top: 240px;
+    top: 210px;
     position: relative;
     text-decoration: none;
     font-family: Futura, ‘Century Gothic’, AppleGothic, sans-serif;
@@ -106,23 +113,26 @@ h2 {
 }
 
 #gameOver {
-    margin-left: 600px;
-    margin-top: 300px;
     position: absolute;
-    z-index: 10;
+    margin-top:-500px;
+    margin-left:600px;
+        z-index:10;
     display: none;
 }
 
 #canvas {
+    position: relative;
     display: none;
+    margin-bottom: 10px;
     margin-left: 400px;
     margin-top: 100px;
 }
 
 #progressContainer {
     display: none;
-    position:relative;
-    margin-left: 400px;
+    position: absolute;
+    margin-left: -700px;
+    margin-top: 910px;
 }
 
 #scoreContainer {
@@ -155,7 +165,7 @@ h2 {
 }
 
 #startPause, #reset, #scoreContainer {
-    display : none;
+    display: none;
 }
 
 canvas {

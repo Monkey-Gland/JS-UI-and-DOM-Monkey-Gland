@@ -29,8 +29,8 @@ function startGame() {
 
 function stopGame() {
     document.getElementById('canvas').style.display = 'none';
-    document.getElementById('loadingMenu').style.display = 'block';
-    document.getElementById('gameOver').style.display = 'inline-block';
+    document.getElementById('loadingMenu').style.display = 'inline-block';
+    document.getElementById('gameOver').style.display = 'block';
     document.getElementById('startBotton').textContent = 'TRY AGAIN';
     document.getElementById('infoBotton').style.display = 'none';
 
