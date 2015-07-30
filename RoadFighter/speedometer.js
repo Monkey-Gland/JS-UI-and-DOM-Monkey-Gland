@@ -13,16 +13,7 @@ var speedometer = (function() {
     var cicle = new Kinetic.Circle({x: 70, y: 70, radius: 65, fill: 'none', strokeWidth: 1});
     var cicleDark = new Kinetic.Circle({x: 70, y: 70, radius: 70, fill: '#BCC6CC', strokeWidth: 1});
 
-    function positionInCicle(centerX, centerY, radius, angleInDegrees) {
-        var angleInRadians = (angleInDegrees-90) * Math.PI / 180.0;
-
-        return {
-            x: centerX + (radius * Math.cos(angleInRadians)),
-            y: centerY + (radius * Math.sin(angleInRadians))
-        };
-    }
-
-    function positionRadians(centerX, centerY, radius, radians) {
+        function positionRadians(centerX, centerY, radius, radians) {
 
         return {
             x: centerX + (radius * Math.cos(radians)),

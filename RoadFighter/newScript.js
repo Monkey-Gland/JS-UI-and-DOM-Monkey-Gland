@@ -33,10 +33,11 @@ function startGame() {
 
 function stopGame() {
     document.getElementById('canvas').style.display = 'none';
+    document.getElementById('infoBotton').style.display = 'none';
+    document.getElementById('timer-container').style.display = 'none';
     document.getElementById('loadingMenu').style.display = 'inline-block';
     document.getElementById('gameOver').style.display = 'block';
     document.getElementById('startBotton').textContent = 'TRY AGAIN';
-    document.getElementById('infoBotton').style.display = 'none';
 
     gameVariables.gameInProgress = false;
     enemyCarsAnimation.stop();
