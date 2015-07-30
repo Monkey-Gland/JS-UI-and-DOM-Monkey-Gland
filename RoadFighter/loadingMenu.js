@@ -7,6 +7,7 @@
     document.getElementById('canvas').style.display = 'inline-block';
     document.getElementById('progressContainer').style.display = 'inline-block';
     gameVariables.time = 0;
+    gameVariables.totalSpeed = 0;
     gameVariables.gameInProgress = true;
 
     increment();
