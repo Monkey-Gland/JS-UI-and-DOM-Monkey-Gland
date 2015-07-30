@@ -60,7 +60,8 @@ function progressBar(distanceTraveled) {
         //status.innerHTML = "100%";
         bar.value = GAME_CONST.timeLimit;
         //clearTimeout(sim);
-        stopGame();
+        winGame();
+   
     }
 }
 

@@ -119,6 +119,13 @@ h2 {
     z-index: 10;
 }
 
+#finalMessage {
+    position: absolute;
+    margin-top: -500px;
+    margin-left: 200px;
+    z-index: 10;
+}
+
 #canvas {
     position: relative;
     margin-bottom: 10px;
@@ -156,7 +163,7 @@ h2 {
     border-radius: 9px;
 }
 
-#startPause, #reset, #scoreContainer, #timer-container,#progressContainer,#timerContainer,#canvas,#gameOver,#info {
+#startPause, #reset, #scoreContainer, #timer-container,#progressContainer,#timerContainer,#canvas,#gameOver,#info,#finalMessage {
     display: none;
 }
 

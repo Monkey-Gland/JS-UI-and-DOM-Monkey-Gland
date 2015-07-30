@@ -45,3 +45,19 @@ function stopGame() {
     carAnimation.stop();
     speedAnimation.stop();
 }
+
+
+function winGame() {
+    document.getElementById('canvas').style.display = 'none';
+    document.getElementById('infoBotton').style.display = 'none';
+    document.getElementById('timer-container').style.display = 'none';
+    document.getElementById('loadingMenu').style.display = 'inline-block';
+    document.getElementById('finalMessage').style.display = 'block';
+    document.getElementById('startBotton').textContent = 'WIN AGAIN';
+
+    gameVariables.gameInProgress = false;
+    enemyCarsAnimation.stop();
+    movingBackgroundAnimation.stop();
+    carAnimation.stop();
+    speedAnimation.stop();
+}
