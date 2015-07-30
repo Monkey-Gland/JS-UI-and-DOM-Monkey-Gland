@@ -2,6 +2,7 @@ var movingBackground = (function() {
     var i,
         len,
         animation,
+        finishLine,
         leftSideRoadShape,
         rightSideRoadShape,
         sideRoadShape,
@@ -11,6 +12,16 @@ var movingBackground = (function() {
         sideLaneShapes = [],
         sideRoadShapes = [],
         layer = new Kinetic.Layer();
+
+    finishLine = new Kinetic.Rect({
+        x:10,
+        y:-500,
+        width: 500,
+        height: 50,
+        fill:'black'
+    });
+
+    layer.add(finishLine);
 
     //creating mid-lane shapes
     for (i = 0, len = GAME_CONST.height / (GAME_CONST.midLineHeight * 2); i < len + 1; i += 1) {
@@ -138,6 +149,11 @@ var movingBackground = (function() {
                })
         	}
         }
+
+        finishLine.move({
+            x: 0,
+            y: GAME_CONST.speed
+        });
 
         for (i = 0, len = midLaneShapes.length; i < len; i += 1) {
         	shapeToBeMoved = midLaneShapes[i];

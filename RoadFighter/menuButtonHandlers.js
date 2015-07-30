@@ -1,6 +1,7 @@
-﻿function loadingMenuStart() {
-    loadingScreen = document.getElementById('loadingMenu');
+﻿function startButtonHandler() {
+    var loadingScreen = document.getElementById('loadingMenu');
     loadingScreen.style.display = 'none';
+
     document.getElementById('gameOver').style.display = 'none';
     document.getElementById('finalMessage').style.display = 'none';
     document.getElementById('timer-container').style.display = 'block';
@@ -15,7 +16,7 @@
     startGame();
 }
 
-function loadingMenuInfo() {
+function creditsButtonHandler() {
     var infoCreateBy = document.getElementById('info');
     if (infoCreateBy.style.display === 'none') {
         infoCreateBy.style.display = 'block';

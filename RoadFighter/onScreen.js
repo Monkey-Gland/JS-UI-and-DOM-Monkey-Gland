@@ -29,7 +29,6 @@ function updateProgressBar(distanceTraveled) {
     var bar = document.getElementById('progressBar');
     bar.value = distanceTraveled;
 
-    console.log(distanceTraveled + " " + GAME_CONST.distanceToFinish);
     if (distanceTraveled >= GAME_CONST.distanceToFinish) {
         bar.value = GAME_CONST.distanceToFinish;
         winGame();
