@@ -1,89 +1,43 @@
-﻿Todo:
-3 layers:
-1) layerMovingObjects -> с движещи се обекти (дървета, осова линия, тротоар, тн.) -> Георги
-2) layerCar -> key moves -> Илиана
-	methods
-3) layerEnemyCars -> Дечо
-4) Loading menu -> Добромира
-5) Info, score, timing, buttons --> Петя
-6) Collisions between our car and enemy's cars
+
+JavaScript UI and DOM 2015
+
+Team Monkey Gland
+
+List of members:
+
+decho.D - ???? ?????
+nikola.stefanov - ?????? ????????
+dobromira.boycheva - ????????? ???????
+petya.mechkova - ???? ???????
+NEw358 - ?????? ????????
+iliant - ?????? ??????
+Arhigram - ?????? ??????
+Project purpose:
+
+	The game is a car racer. The purpose is to finish before time has run out. You are given one minute to finish the track without crashing into an enemy car. If you hit enemy car the game ends.
+	Time is tracked by a clock and progress is measured by a progress bar. 
+	Upon the start of the game a menu is loaded with two options : �START� or view the team list by pressing �CREATED BY�. 
+	The game ends if the player hits enemy car, time runs out or the player presses the escape button. After any of these events, �TRY AGAIN� button enables starting a new game and resets the current status.
+
+URL of the game�s Git repository:
+
+https://github.com/Monkey-Gland/JS-UI-and-DOM-Monkey-Gland
+
+Implemented assets, as per the task given :
+
+Use the HTML5 canvas
+A Canvas framework - KineticJS
+Use SVG
+Create animations 
+The application must work in the latest versions of the browsers: Google Chrome, Mozilla Firefox, Internet Explorer 10/11, Opera and Apple Safary
 
 
+Additional Requirements
 
-JavaScript DOM & UI: Teamwork Assignment
-This document describes the teamwork assignment for Telerik Academy students in JavaScript UI & DOM course
+Follow the best practices for producing high-quality code:
 
-	Project Description
-	Implement a client-side JavaScript application using the HTML graphic APIs – canvas and SVG.
-
-	The project can be a game, web statistics or anything else. Sample applications:
-
-	Chess
-	Backgammon
-	Any jumping game – Super Mario, Bomberman or else
-	Statistics application – app showing different charts, based on received data
-	Minesweeper
-	Solitaire
-	Bridge-Belote
-	Paint-like application – drawing shapes, lines, etc
-	General Requirements
-
-	Please define and implement the following assets in your project:
-
-	Use the HTML5 canvas
-	Or a Canvas framework like KineticJS, paper.js or other
-	Use SVG
-	Or a SVG framework like Raphael JS or other
-	Create animations
-	Either for the canvas, SVG or both
-	The application must work in the latest versions of the browsers: Google Chrome, Mozilla Firefox, Internet Explorer 10/11, Opera and Apple Safary
-	Additional Requirements
-
-	Follow the best practices for producing high-quality code:
-
-	Correct naming
-	Data encapsulation
-	Use OOP and modules
-	Strong cohesion and loose coupling
-	Use GIT as a source control system
-	Host it on http://github.com
-	
-	Optional Requirements
-	If you have a chance, time and a suitable situation, you might add some of the following to your project:
-
-	Use DOM manipulations like native DOM API and/or jQuery
-	Unit and integration testing
-	Backward compatibility (make the application usable on browsers like IE8, IE7 and IE6)
-	
-	
-	Non-required Work
-
-	Completely finished project is not obligatory required. It will not be a big problem if your project is not completely finished or is not working greatly
-	This team work project is for educational purpose
-	Its main purpose it to experience using graphics, DOM manipulation and OOP in a real-world-like project and to get some experience in team working and team collaboration with a source control system.
-	Implementation of server-side logic with ASP.NET, PHP, Java or Node.js
-	
-	
-	Deliverables
-
-	Put the following in a ZIP archive and submit it (each team member submits the same file):
-
-	The complete source code
-	Brief documentation of your project (2-3 pages). It should provide the following information (in brief):
-	Team name and list of team members
-	Project purpose – what problem do you solve?
-	The URL of your Git repository
-	Any other information (optionally)
-	Optionally provide a presentation designed for the project defence
-	
-	
-	Public Project Defence
-	Each team will have to deliver a public defence of its work to the other students and trainers. You will have only 10 minutes for the following:
-
-	Demonstrate the application (very shortly)
-	Show the source code
-	Show the commits logs to confirm that team member have contributed.
-	Optionally you might prepare a presentation (3-4 slides) Please be strict in timing! Be well prepared for presenting maximum of your work for minimum time. Bring your own laptop. Test it preliminary with the multimedia projector. Open the project assets beforehand to save time. You have 10 minutes, no more
-	Give Feedback about Your Team mates
-
-	You will be invited to provide feedback about all your team mates, their attitude to this project, their technical skills, their team working skills, their contribution to the project, etc. The feedback is important part of the project evaluation so take it seriously and be honest
+Correct naming
+Data encapsulation
+Use OOP and modules
+Strong cohesion and loose coupling
+Use GIT as a source control system, host it on http://github.com
