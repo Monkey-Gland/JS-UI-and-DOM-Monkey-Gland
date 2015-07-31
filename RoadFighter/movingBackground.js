@@ -9,7 +9,6 @@ var movingBackground = (function() {
         sideRoadShape,
         sideRoadImageObject,
         shapeToBeMoved,
-        pixelsMoved = 0,
         midLaneShapes = [],
         sideLaneShapes = [],
         sideRoadShapes = [],
@@ -17,7 +16,7 @@ var movingBackground = (function() {
 
     finishLine = new Kinetic.Rect({
         x: GAME_CONST.width / 4,
-        y:((GAME_CONST.distanceToFinish * PLAYER_CONST.speedMax) - GAME_CONST.height * 6.2) * -1,
+        y: GAME_CONST.height * 2,
         width: GAME_CONST.width / 2,
         height: 50,
         fill:'#008000'
@@ -25,15 +24,11 @@ var movingBackground = (function() {
 
     finishLineText = new Kinetic.Text({
         x: GAME_CONST.width / 4 + (GAME_CONST.width / 8) + 15,
-        y: ((GAME_CONST.distanceToFinish * PLAYER_CONST.speedMax) - GAME_CONST.height * 6.2) * -1,
-        //y: 400,
+        y: GAME_CONST.height * 2,
         fontSize:  50,
         text: "Finish",
         fill: "#BDB76B"
     });
-
-    layer.add(finishLine);
-    layer.add(finishLineText);
 
     //creating mid-lane shapes
     for (i = 0, len = GAME_CONST.height / (GAME_CONST.midLineHeight * 2); i < len + 1; i += 1) {
@@ -145,13 +140,13 @@ var movingBackground = (function() {
         layer.add(sideRoadShapes[i]);
     }
 
+    layer.add(finishLine);
+    layer.add(finishLineText);
+
     animation = new Kinetic.Animation(function(frame){
         var i,
             len,
             startY = midLaneShapes[0].y();
-
-        pixelsMoved += GAME_CONST.speed;
-        //console.log(pixelsMoved);
 
         // moving mid-lane shapes
         if(startY >= 0){
@@ -232,15 +227,8 @@ var movingBackground = (function() {
     }, layer);
 
     function resetFinishLine() {
-        finishLine.move({
-            x:0,
-            y:((GAME_CONST.distanceToFinish * PLAYER_CONST.speedMax) - GAME_CONST.height ) * -1
-        });
-
-        finishLineText.move({
-            x:0,
-            y:((GAME_CONST.distanceToFinish * PLAYER_CONST.speedMax) - GAME_CONST.height ) * -1
-        })
+        finishLine.y(0 - 50);
+        finishLineText.y(0 - 50);
     }
 
     return{

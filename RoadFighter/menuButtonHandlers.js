@@ -11,7 +11,7 @@
     gameVariables.timeInSeconds = 0;
     gameVariables.totalSpeed = 0;
     gameVariables.gameInProgress = true;
-    movingBackground.resetFinishLine();
+    gameVariables.finishLineMoved = false;
 
     increment();
     startGame();

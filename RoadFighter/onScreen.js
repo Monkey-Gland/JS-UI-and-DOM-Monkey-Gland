@@ -20,6 +20,11 @@ function increment() {
                 stopGame();
             }
 
+            if (gameVariables.distanceTraveled + 47 >= GAME_CONST.distanceToFinish && !gameVariables.finishLineMoved) {
+                movingBackground.resetFinishLine();
+                gameVariables.finishLineMoved = true;
+            }
+
             increment();
         }, 100);
     }

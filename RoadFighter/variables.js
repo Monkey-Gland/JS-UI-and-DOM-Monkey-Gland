@@ -18,16 +18,17 @@ var GAME_CONST = {
     defaultSpeed: 2,
     speed: this.defaultSpeed,
     distanceCoefficient: 0.01,
-    distanceToFinish: 450,
-    timeLimit: 30
-};
+    distanceToFinish: 450, // change here to change difficulty (timeLimit * maxSpeed(currently 20) is the max distance you can go in full speed)
+    timeLimit: 30          // so if you have 30 seconds you can move a maximum of 600 units(if you start at full speed, and that's not the case)
+};                         // give yourself some more time or better decrease the distance by at least 100-200 units
 
 var gameVariables = {
     timeInSeconds: 0,
     gameInProgress: false,
     totalSpeed: 0,
     averageSpeed: 0,
-    distanceTraveled: 0
+    distanceTraveled: 0,
+    finishLineMoved: false
 };
 
 var ENEMY_CONST = {
